@@ -3,7 +3,7 @@
 $host = "localhost";
 $user = "root";
 $pass = "";
-$db = ""; // adicionar nome do banco
+$db = "estacionamento_bd";
 
 $conn = new mysqli($host, $user, $pass, $db);
 
