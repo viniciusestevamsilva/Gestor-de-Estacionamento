@@ -7,10 +7,11 @@
     <title>DILEVI Parking</title>
 </head>
 <body>
-    <?php include "public/header.php";?>
+    <?php// include "public/header.php";?>
 
     <!-- Incluir o código necessário -->
      
+    <?php include "public/login.php";?>
     <?php include "public/footer.php";?>
 </body>
 </html>
