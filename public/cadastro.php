@@ -1,0 +1,1 @@
+<a href="public/redefinir.php">Esqueci minha senha</a>

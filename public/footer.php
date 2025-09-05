@@ -1,4 +1,3 @@
 <footer>
-    <p>Footer</p>
-    <!-- Colocar o nome do sistema -->
+    <p>&copy; - DILEVI Parking - 2025</p>
 </footer>
