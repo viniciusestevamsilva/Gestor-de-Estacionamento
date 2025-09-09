@@ -17,7 +17,7 @@
         const login = document.getElementById("login").value;
         const senha = document.getElementById("pass").value;
 
-        await fetch("../api/criar.php", {
+        await fetch("../api/usuario/criar.php",{
             method: "POST",
             body: JSON.stringify({
                 nome, login, senha
