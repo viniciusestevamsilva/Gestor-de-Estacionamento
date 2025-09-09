@@ -7,8 +7,8 @@ $db = "estacionamento_bd";
 
 $conn = new mysqli($host, $user, $pass, $db);
 
-if ($conn->connection_error) {
-    die("Erro na conexão: " . $conn->connection_error);
+if ($conn->connect_error) {
+    die("Erro na conexão: " . $conn->connect_error);
 }
 
 ?>
