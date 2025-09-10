@@ -7,4 +7,3 @@
     <title>DILEVI Parking</title>
 </head>
 <body>
-    <a href="../"></a>
