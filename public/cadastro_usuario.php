@@ -1,3 +1,5 @@
+<?php include "./header.php" ?>
+
 <form action="../index.php" method="POST">
     <label for="user">NOME DE USUÁRIO:</label>
     <input type="text" name="user_name" id="user" required>

@@ -1,3 +1,5 @@
-<footer>
-    <p>&copy; - DILEVI Parking - 2025</p>
-</footer>
+    <footer>
+        <p>&copy; - DILEVI Parking - 2025</p>
+    </footer>
+</body>
+</html>
