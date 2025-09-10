@@ -2,4 +2,96 @@
     margin: 0;
     padding: 0;
     font-family: 'Segoe UI', sans-serif;
+    text-decoration: none;
+}
+
+body {
+    text-align: center;
+    background-color: #e7e7e7;
+}
+
+header {
+    background-color: #636b2f;
+    color: #e7e7e7;
+    padding: 30px;
+    margin-bottom: 30px;
+}
+
+h2 {
+    color: #636b2f;
+    margin: 30px;
+    margin-bottom: 15px;
+}
+
+a {
+    text-align: center;
+    background-color: #636b2f;
+    color: #e7e7e7;
+    border: 1px solid #333;
+    border-radius: 5px;
+    padding: 10px;
+    padding-left: 75px; padding-right: 75px;
+    font-weight: bold;
+}
+
+button {
+    text-align: center;
+    background-color: #636b2f;
+    color: #e7e7e7;
+    border: 1px solid #333;
+    border-radius: 5px;
+    padding: 10px;
+    padding-left: 75px; padding-right: 75px;
+    font-weight: bold;
+}
+
+#listaTarefas {
+    padding: 10px;
+    background-color: #333;
+    color: #e7e7e7;
+    border: 1px solid #636b2f;
+    width: 1000px;
+    margin: 0 auto; /* <-- centraliza o ul */
+}
+
+.fundo-bk{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -1;
+  object-fit: cover;
+  opacity: 30%;
+}
+
+.container-form {
+    display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; 
+}
+
+.formulario {
+  background-color: #cecdcd;
+  padding: 30px;
+  border-radius: 10px;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  box-shadow: 0 0 10px #0000001a;
+  width: 500px;
+}
+
+.formulario input {
+    cursor: pointer;
+  background-color: #e7e7e7;
+  color: #333;
+  width: 90%;
+  padding: 10px 20px;
+  margin-bottom: 20px;
+  border: none;
+  border-radius: 5px;
+  box-shadow: 0 0 10px #b6b5b5;
 }
