@@ -1,6 +1,6 @@
 <?php include "./header.php" ?>
 
-<form action="../index.php" method="POST">
+<form action="../index.php" method="POST" class='mini-formulario'>
     <label for="user">NOME DO CLIENTE:</label>
     <input type="text" name="user_name" id="user" required>
     <label for="number">NÚMERO DE CONTATO:</label>

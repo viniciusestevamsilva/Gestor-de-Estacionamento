@@ -1,13 +1,15 @@
 <?php include "./header.php" ?>
+<img src="../img/parede-de-concreto.jpg" class='fundo-bk'>
 <header>
     <h1>DILEVI Parking</h1>
 </header>
+
 <button>cadastro_usuario</button>
 <button>cadastro_veiculo</button>
+<a href="../index.php" id='btn-saida'>SAIR</a>
 <?php include "./cadastro_usuario.php"?>
 
-<table>
-    <caption><strong>Situação das Vagas</strong></caption>
+<table  id='tabelaTarefas'>
     <thead>
         <tr>
             <th>Situação</th>
@@ -23,6 +25,6 @@
     <tbody id="vagas"></tbody>
 </table>
 
-<a href="../index.php">SAIR</a>
+
 <script src="../js/script.js"></script>
 <?php include "./footer.php" ?>
