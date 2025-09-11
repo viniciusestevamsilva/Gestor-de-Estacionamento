@@ -1,14 +1,28 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" href="../img/estacionamento.ico" type="image/x-icon">
-    <title>DILEVI Parking</title>
-</head>
-<body>
-    <?php include "./header.php" ?>
-    <a href="../index.php">SAIR</a>
-    <?php include "./footer.php" ?>
-</body>
-</html>
+<?php include "./header.php" ?>
+<header>
+    <h1>DILEVI Parking</h1>
+</header>
+<button>cadastro_usuario</button>
+<button>cadastro_veiculo</button>
+<?php include "./cadastro_usuario.php"?>
+
+<table>
+    <caption><strong>Situação das Vagas</strong></caption>
+    <thead>
+        <tr>
+            <th>Situação</th>
+            <th>Setor</th>
+            <th>Número</th>
+            <th>Nome</th>
+            <th>Placa</th>
+            <th>Hora de Entrada</th>
+            <th>Hora de Saída</th>
+            <th>Valor(R$)</th>
+        </tr>
+    </thead>
+    <tbody id="vagas"></tbody>
+</table>
+
+<a href="../index.php">SAIR</a>
+<script src="../js/script.js"></script>
+<?php include "./footer.php" ?>
