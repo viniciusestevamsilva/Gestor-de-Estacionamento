@@ -7,6 +7,7 @@
     <input type="text" name="user_number" id="number" required>
     <label for="nascimento">ANO DE NASCIMENTO:</label>
     <input type="number" name="user_nascimento" id="nascimento" min="1900" required>
+    <button type="submit" id="cadastrar">CADASTRAR</button>
 </form>
 
 <script>
