@@ -1,0 +1,18 @@
+<?php
+header("Content-Type: application/json");
+
+include("../conexao/conexao.php");
+
+$sql = "SELECT nome,numero,ano 
+FROM tb_cliente";
+
+$result = $conn->query($sql);
+
+$dados = [];
+
+while($row = $result->fetch_assoc()) {
+    $dados[] = $row;
+}
+
+echo json_encode($dados);
+?>

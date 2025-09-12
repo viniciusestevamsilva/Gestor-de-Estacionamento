@@ -40,3 +40,39 @@ async function exibirVagas() {
 }
 
 exibirVagas();
+
+
+async function exibirUsuarios() {
+    const exibir = await fetch("../api/usuario/exibir.php");
+    const resposta = await exibir.json();
+    
+    console.log(resposta);
+    const tabela = document.getElementById("usuarios");
+    tabela.innerHTML = "";
+
+    resposta.forEach(usuarios => {
+        const novaLinha = tabela.insertRow();
+
+        const nome = novaLinha.insertCell();
+        const numero = novaLinha.insertCell();
+        const ano = novaLinha.insertCell();
+
+        nome.textContent = vagas.nome;
+        numero.textContent = vagas.numero;
+        ano.textContent = vagas.ano;
+
+
+        if (usuarios.situacao == 0) {
+            novaLinha.style.backgroundColor = "#FF0000";
+            situacao.textContent = "Ocupado";
+        } else {
+            novaLinha.style.backgroundColor = "#00FF00";
+            situacao.textContent = "Livre";
+        }
+
+        tabela.appendChild(novaLinha);
+    });
+
+}
+
+exibirUsuarios();

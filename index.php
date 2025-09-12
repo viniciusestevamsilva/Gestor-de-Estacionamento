@@ -4,7 +4,5 @@
 
 <?php include "public/login.php";?>
 
-    </main>
-
 </body>
 </html>
