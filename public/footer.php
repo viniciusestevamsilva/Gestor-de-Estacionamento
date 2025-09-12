@@ -1,3 +1,5 @@
-<footer>
-    <h1>&copy; - DILEVI Parking - 2025</h1>
-</footer>
+    <footer>
+        <p>&copy; - DILEVI Parking - SISTEMA GERENCIADOR DE ESTACIONAMENTO - 2025</p>
+    </footer>
+</body>
+</html>
