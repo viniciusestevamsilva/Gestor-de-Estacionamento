@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 05-Set-2025 às 00:28
+-- Tempo de geração: 13-Set-2025 às 01:34
 -- Versão do servidor: 10.4.24-MariaDB
 -- versão do PHP: 8.1.6
 
@@ -24,6 +24,26 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
+-- Estrutura da tabela `tb_cliente`
+--
+
+CREATE TABLE `tb_cliente` (
+  `id` int(11) NOT NULL,
+  `nome` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `telefone` varchar(20) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `ano_nasc` year(4) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Extraindo dados da tabela `tb_cliente`
+--
+
+INSERT INTO `tb_cliente` (`id`, `nome`, `telefone`, `ano_nasc`) VALUES
+(25, 'Leonardo', '3299998888', 1995);
+
+-- --------------------------------------------------------
+
+--
 -- Estrutura da tabela `tb_ocupacao`
 --
 
@@ -33,22 +53,15 @@ CREATE TABLE `tb_ocupacao` (
   `id_veiculo` int(11) NOT NULL,
   `hora_entrada` timestamp NOT NULL DEFAULT current_timestamp(),
   `hora_saida` timestamp NULL DEFAULT NULL,
-  `valor` decimal(10,2) DEFAULT NULL
+  `valor` decimal(10,2) DEFAULT 0.00
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- --------------------------------------------------------
-
 --
--- Estrutura da tabela `tb_usuario`
+-- Extraindo dados da tabela `tb_ocupacao`
 --
 
-CREATE TABLE `tb_usuario` (
-  `id` int(11) NOT NULL,
-  `nome` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `login` varchar(20) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `senha` varchar(20) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `tipo_usuario` varchar(15) COLLATE utf8mb4_unicode_ci DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+INSERT INTO `tb_ocupacao` (`id`, `id_vaga`, `id_veiculo`, `hora_entrada`, `hora_saida`, `valor`) VALUES
+(2, 1, 4, '2025-09-12 23:29:54', NULL, '0.00');
 
 -- --------------------------------------------------------
 
@@ -63,6 +76,13 @@ CREATE TABLE `tb_vaga` (
   `numero` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Extraindo dados da tabela `tb_vaga`
+--
+
+INSERT INTO `tb_vaga` (`id`, `situacao`, `setor`, `numero`) VALUES
+(1, 1, 'A', 1);
+
 -- --------------------------------------------------------
 
 --
@@ -72,13 +92,26 @@ CREATE TABLE `tb_vaga` (
 CREATE TABLE `tb_veiculo` (
   `id` int(11) NOT NULL,
   `id_usuario` int(11) NOT NULL,
-  `placa` varchar(10) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `modelo` varchar(30) COLLATE utf8mb4_unicode_ci DEFAULT NULL
+  `placa` varchar(10) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `cor` varchar(20) COLLATE utf8mb4_unicode_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Extraindo dados da tabela `tb_veiculo`
+--
+
+INSERT INTO `tb_veiculo` (`id`, `id_usuario`, `placa`, `cor`) VALUES
+(4, 25, 'PAP-UD4', '1');
 
 --
 -- Índices para tabelas despejadas
 --
+
+--
+-- Índices para tabela `tb_cliente`
+--
+ALTER TABLE `tb_cliente`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Índices para tabela `tb_ocupacao`
@@ -87,13 +120,6 @@ ALTER TABLE `tb_ocupacao`
   ADD PRIMARY KEY (`id`),
   ADD KEY `id_vaga` (`id_vaga`),
   ADD KEY `id_veiculo` (`id_veiculo`);
-
---
--- Índices para tabela `tb_usuario`
---
-ALTER TABLE `tb_usuario`
-  ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `login` (`login`);
 
 --
 -- Índices para tabela `tb_vaga`
@@ -115,28 +141,28 @@ ALTER TABLE `tb_veiculo`
 --
 
 --
+-- AUTO_INCREMENT de tabela `tb_cliente`
+--
+ALTER TABLE `tb_cliente`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+
+--
 -- AUTO_INCREMENT de tabela `tb_ocupacao`
 --
 ALTER TABLE `tb_ocupacao`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT de tabela `tb_usuario`
---
-ALTER TABLE `tb_usuario`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT de tabela `tb_vaga`
 --
 ALTER TABLE `tb_vaga`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT de tabela `tb_veiculo`
 --
 ALTER TABLE `tb_veiculo`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- Restrições para despejos de tabelas
@@ -153,7 +179,7 @@ ALTER TABLE `tb_ocupacao`
 -- Limitadores para a tabela `tb_veiculo`
 --
 ALTER TABLE `tb_veiculo`
-  ADD CONSTRAINT `tb_veiculo_ibfk_1` FOREIGN KEY (`id_usuario`) REFERENCES `tb_usuario` (`id`);
+  ADD CONSTRAINT `tb_veiculo_ibfk_1` FOREIGN KEY (`id_usuario`) REFERENCES `tb_cliente` (`id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
