@@ -25,11 +25,10 @@
             <th>Ano de Nascimento</th>
         </tr>
     </thead>
-    <tbody id="vagas"></tbody>
+    <tbody id="usuarios"></tbody>
 </table>
 
-<script src="../js/script.js"></script>
-<script>
+<!-- <script>
     document.getElementById("cadastrar").onclick = async () =>{
         const nome = document.getElementById("user").value;
         const numero = document.getElementById("number").value;
@@ -42,4 +41,6 @@
             })
         });
     }
-</script>
+</script> -->
+
+<script src="../js/script.js"></script>

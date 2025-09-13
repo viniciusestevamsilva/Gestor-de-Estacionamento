@@ -41,7 +41,6 @@ async function exibirVagas() {
 
 exibirVagas();
 
-
 async function exibirUsuarios() {
     const exibir = await fetch("../api/usuario/exibir.php");
     const resposta = await exibir.json();
@@ -57,18 +56,9 @@ async function exibirUsuarios() {
         const numero = novaLinha.insertCell();
         const ano = novaLinha.insertCell();
 
-        nome.textContent = vagas.nome;
-        numero.textContent = vagas.numero;
-        ano.textContent = vagas.ano;
-
-
-        if (usuarios.situacao == 0) {
-            novaLinha.style.backgroundColor = "#FF0000";
-            situacao.textContent = "Ocupado";
-        } else {
-            novaLinha.style.backgroundColor = "#00FF00";
-            situacao.textContent = "Livre";
-        }
+        nome.textContent = usuarios.nome;
+        numero.textContent = usuarios.telefone;
+        ano.textContent = usuarios.ano_nasc;
 
         tabela.appendChild(novaLinha);
     });

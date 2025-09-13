@@ -1,18 +1,14 @@
 <?php
 header("Content-Type: application/json");
 
-include("../conexao/conexao.php");
+include("../../conexao/conexao.php");
 
-$sql = "SELECT nome,numero,ano 
-FROM tb_cliente";
-
+$sql = "SELECT nome, telefone, ano_nasc FROM tb_cliente";
 $result = $conn->query($sql);
 
 $dados = [];
 
 while($row = $result->fetch_assoc()) {
-    $dados[] = $row;
-}
+    $dados[] = $row;}
 
 echo json_encode($dados);
-?>
