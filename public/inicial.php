@@ -20,6 +20,7 @@
             <th>Hora de Entrada</th>
             <th>Hora de Saída</th>
             <th>Valor(R$)</th>
+            <th>Adicionar Saída</th>
         </tr>
     </thead>
     <tbody id="vagas"></tbody>
