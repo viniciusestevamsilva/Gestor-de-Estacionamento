@@ -11,10 +11,14 @@ body {
 }
 
 header {
-  background-color: #636b2f;
-  color: #e7e7e7;
   padding: 30px;
   margin-bottom: 30px;
+  background-color: #636b2f;
+  color: #e7e7e7;
+  display: flex;
+  align-items: center; 
+  justify-content: center; 
+  gap: 20px;  
 }
 
 h2 {
@@ -62,10 +66,31 @@ button:hover {
 
 footer {
   text-align: center;
-  color: #333;
+  color: #e7e7e7;
+  background-color: #636b2f;
   padding: 30px;
   margin-top: 30px;
   font-weight: bold;
+}
+
+.icone {
+  width: 60px;
+  height: auto;
+}
+
+.ajustes-header-footer {
+  min-height: 100vh;
+  display: flex; 
+  flex-direction: column;        
+}
+
+.ajustes-header-footer main {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 30px 0;
+  overflow: hidden;
 }
 
 .fundo-bk{
@@ -115,16 +140,25 @@ footer {
 }
 
 #tabelaTarefas {
-  /* width: 1000px; */
+  width: 1000px;
   margin: 30px auto;
   border-collapse: collapse;
   background-color: #333;
   color: #e7e7e7;
   box-shadow: 0 0 10px #000000;
   border-radius: 5px;
+  overflow: hidden;
+  
 }
 
-#tabelaTarefas th,
+#tabelaTarefas thead th,
+#tabelaTarefas td {
+  padding: 12px 15px;
+  border: 1px solid #333;
+  text-align: center;
+}
+
+#tabelaTarefas tbody th,
 #tabelaTarefas td {
   padding: 12px 15px;
   border: 1px solid #636b2f;
@@ -133,6 +167,12 @@ footer {
 
 #tabelaTarefas thead {
   background-color: #636b2f;
+
+}
+
+#tabelaTarefas thead td{
+  background-color: #636b2f;
+  border: 1px solid #333;
 }
 
 #tabelaTarefas tbody tr:nth-child(even) {
