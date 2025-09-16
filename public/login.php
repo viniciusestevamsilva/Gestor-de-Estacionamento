@@ -1,4 +1,4 @@
-<main class="container-form">
+<main class="container-form pagina">
     
     <form action="public/inicial.php" method="POST" class="formulario">
         <label for="user"><strong>LOGIN:</strong></label>
