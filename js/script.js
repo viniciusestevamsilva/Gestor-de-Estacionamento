@@ -1,9 +1,9 @@
 async function executarTarefas() {
     // Chamado todos os caminhos para a exibição
     const exibirVagas = await fetch("../api/vagas/exibir_vagas.php");
-    // const exibirUsuarios = await fetch("../api/usuario/exibir.php");
+    const exibirUsuarios = await fetch("../api/usuario/exibir.php");
     const situacaoVagas = await exibirVagas.json();
-    // const usuarios = await exibirUsuarios.json();
+    const usuarios = await exibirUsuarios.json();
     
     // console.log(situacaoVagas);
     // console.log(usuarios);
