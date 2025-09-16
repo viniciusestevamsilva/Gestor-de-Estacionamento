@@ -27,11 +27,18 @@ a {
   text-align: center;
   background-color: #636b2f;
   color: #e7e7e7;
-box-shadow: 0 0 10px #000000;
+  box-shadow: 0 0 10px #000000;
+  border: 1px solid #333;
   border-radius: 5px;
   padding: 10px;
+  margin: 10px;
   padding-left: 75px; padding-right: 75px;
   font-weight: bold;
+}
+
+a:hover {
+  background-color: #e7e7e7;
+  color: #636b2f;
 }
 
 button {
@@ -46,6 +53,11 @@ button {
   padding: 10px;
   padding-left: 75px; padding-right: 75px;
   font-weight: bold;
+}
+
+button:hover {
+  background-color: #e7e7e7;
+  color: #636b2f;
 }
 
 footer {
@@ -68,17 +80,17 @@ footer {
 }
 
 .container-form {
-    display: flex;
+  display: flex;
   justify-content: center;
-  align-items: center;
-  height: 100vh; 
+  align-items: center; 
 }
 
 .formulario {
+  margin: 40px;
   background-color: #cecdcd;
   padding: 30px;
   border-radius: 10px;
-  text-align: left;
+  text-align: center;
   display: flex;
   flex-direction: column;
   gap: 20px;
@@ -92,40 +104,18 @@ footer {
   color: #333;
   width: 90%;
   padding: 10px 20px;
-  margin-bottom: 20px;
+  margin: auto;
   border: none;
   border-radius: 5px;
   box-shadow: 0 0 10px #b6b5b5;
 }
 
-.mini-formulario {
-  margin: 20px auto;
-  background-color: #cecdcd;
-  padding: 30px;
-  border-radius: 10px;
-  text-align: left;
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-  box-shadow: 0 0 10px #000000;
-  width: 500px;
-}
-
-.mini-formulario input {
-
-  cursor: pointer;
-  background-color: #e7e7e7;
-  color: #333;
-  width: 90%;
-  padding: 10px 20px;
-  margin-bottom: 20px;
-  border: none;
-  border-radius: 5px;
-  box-shadow: 0 0 10px #b6b5b5;
+.pagina {
+  height: 100vh;
 }
 
 #tabelaTarefas {
-  width: 1000px;
+  /* width: 1000px; */
   margin: 30px auto;
   border-collapse: collapse;
   background-color: #333;
@@ -164,10 +154,13 @@ footer {
   background-color: #991b1b;
 }
 
-
 #btn-saida{
-  /* float: right; */
   margin: 0 20px;
   background-color: #333;
   color: #e7e7e7;
+}
+
+#btn-saida:hover {
+  color: #333;
+  background-color: #e7e7e7;
 }
