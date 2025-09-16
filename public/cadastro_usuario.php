@@ -7,19 +7,20 @@
     <input type="text" name="user_number" id="number" required>
     <label for="nascimento">ANO DE NASCIMENTO:</label>
     <input type="number" name="user_nascimento" id="nascimento" min="1900" required>
-    <button type="submit" id="cadastrar">CADASTRAR</button>
+    <button type="button" id="cadastrar">CADASTRAR</button>
 </form>
 
 <script>
     document.getElementById("cadastrar").onclick = async () =>{
         const nome = document.getElementById("user").value;
-        const numero = document.getElementById("number").value;
+        const telefone = document.getElementById("number").value;
         const ano = document.getElementById("nascimento").value;
 
         await fetch("../api/usuario/criar.php",{
             method: "POST",
+            headers: { "Content-Type": "application/json" },
             body: JSON.stringify({
-                nome, numero, ano
+                nome, telefone, ano
             })
         });
     }

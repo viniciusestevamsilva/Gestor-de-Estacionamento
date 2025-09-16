@@ -8,13 +8,13 @@ include("../../conexao/conexao.php");
 $dados = json_decode(file_get_contents("php://input"), true);
 
 $nome = $conn->real_escape_string($dados["nome"]);
-$login = $conn->real_escape_string($dados["login"]);
-$senha = $conn->real_escape_string($dados["senha"]);
+$telefone = $conn->real_escape_string($dados["telefone"]);
+$ano = $conn->real_escape_string($dados["ano"]);
 
-$sql = "INSERT INTO tb_usuario (nome, login, senha) VALUES ('$nome', '$login', '$senha')";
+$sql = "INSERT INTO tb_cliente (nome, telefone, ano_nasc) VALUES ('$nome', '$telefone', '$ano')";
 
 $conn->query($sql);
 
 
-echo json_encode(["id" => $conn->insert_id, "nome" => $nome, "login" => $login, "senha" => $senha]);
+echo json_encode(["id" => $conn->insert_id, "nome" => $nome, "telefone" => $telefone, "ano_nasc" => $ano]);
 ?>

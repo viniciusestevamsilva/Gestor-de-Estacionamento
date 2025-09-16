@@ -7,7 +7,6 @@
 <button>cadastro_usuario</button>
 <button>cadastro_veiculo</button>
 <a href="../index.php" id='btn-saida'>SAIR</a>
-<?php include "./cadastro_usuario.php"?>
 
 <table  id='tabelaTarefas'>
     <thead>
