@@ -3,6 +3,7 @@ header("Content-Type: application/json");
 
 include("../../conexao/conexao.php");
 
+
 $sql = "SELECT nome, telefone, ano_nasc FROM tb_cliente";
 $result = $conn->query($sql);
 
