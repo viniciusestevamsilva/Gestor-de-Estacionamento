@@ -2,19 +2,26 @@
 header("Content-Type: application/json");
 
 include("../../conexao/conexao.php");
-// include $_SERVER['DOCUMENT_ROOT'] . '/conexao/conexao.php';
-
 
 $dados = json_decode(file_get_contents("php://input"), true);
 
-$nome = $conn->real_escape_string($dados["nome"]);
-$login = $conn->real_escape_string($dados["login"]);
-$senha = $conn->real_escape_string($dados["senha"]);
+$nome = $conn->real_escape_string($dados["nome"] ?? '');
+$numero = $conn->real_escape_string($dados["numero"] ?? '');
+$ano = intval($dados["ano"] ?? 0);
 
-$sql = "INSERT INTO tb_usuario (nome, login, senha) VALUES ('$nome', '$login', '$senha')";
+$sql = "INSERT INTO tb_cliente (nome, telefone, ano_nasc) VALUES ('$nome', '$numero', $ano)";
 
-$conn->query($sql);
-
-
-echo json_encode(["id" => $conn->insert_id, "nome" => $nome, "login" => $login, "senha" => $senha]);
+if ($conn->query($sql)) {
+    echo json_encode([
+        "mensagem" => "Cliente cadastrado com sucesso!",
+        "id" => $conn->insert_id,
+        "nome" => $nome,
+        "numero" => $numero,
+        "ano" => $ano
+    ]);
+} else {
+    echo json_encode([
+        "erro" => "Erro ao inserir no banco: " . $conn->error
+    ]);
+}
 ?>
