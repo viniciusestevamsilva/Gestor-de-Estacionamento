@@ -1,9 +1,9 @@
 async function executarTarefas() {
     // Chamado todos os caminhos para a exibição
     const exibirVagas = await fetch("../api/vagas/exibir_vagas.php");
-    const exibirUsuarios = await fetch("../api/usuario/exibir.php");
+    // const exibirUsuarios = await fetch("../api/usuario/exibir.php");
     const situacaoVagas = await exibirVagas.json();
-    const usuarios = await exibirUsuarios.json();
+    // const usuarios = await exibirUsuarios.json();
     
     // console.log(situacaoVagas);
     // console.log(usuarios);
@@ -48,14 +48,15 @@ async function executarTarefas() {
 
 }
 
-exibirVagas();
+executarTarefas();
 
 async function exibirUsuarios() {
     const exibir = await fetch("../api/usuario/exibir.php"); 
         const resposta = await exibir.json();
         console.log(resposta); 
         const tabela = document.getElementById("usuarios"); 
-        tabela.innerHTML = ""; resposta.forEach(usuarios => { const novaLinha = tabela.insertRow(); 
+        tabela.innerHTML = "";
+            resposta.forEach(usuarios => { const novaLinha = tabela.insertRow(); 
             const nome = novaLinha.insertCell(); 
             const numero = novaLinha.insertCell(); 
             const ano = novaLinha.insertCell(); 
@@ -64,4 +65,42 @@ async function exibirUsuarios() {
             ano.textContent = usuarios.ano_nasc; 
             tabela.appendChild(novaLinha);
         });
-    } exibirUsuarios();
+}
+
+exibirUsuarios();
+
+document.getElementById("formCadastro").addEventListener("submit", async function (e) {
+    e.preventDefault();
+
+    const nome = document.getElementById("user").value.trim();
+    const numero = document.getElementById("number").value.trim();
+    const ano = parseInt(document.getElementById("nascimento").value);
+
+    if (!nome || !numero || isNaN(ano)) {
+        alert("Preencha todos os campos corretamente.");
+        return;
+    }
+
+    try {
+        const resposta = await fetch("../api/usuario/criar.php", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({ nome, numero, ano })
+        });
+
+        const resultado = await resposta.json();
+
+        if (resultado.mensagem) {
+            alert("Usuário cadastrado com sucesso!");
+            exibirUsuarios();
+            document.getElementById("formCadastro").reset();
+        } else {
+            alert("Erro: " + (resultado.erro || "Erro desconhecido"));
+        }
+    } catch (erro) {
+        alert("Erro de conexão com o servidor.");
+        console.error(erro);
+    }
+});
