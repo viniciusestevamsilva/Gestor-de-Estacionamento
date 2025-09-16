@@ -41,3 +41,18 @@ async function exibirVagas() {
 
 exibirVagas();
 
+async function exibirUsuarios() {
+    const exibir = await fetch("../api/usuario/exibir.php"); 
+        const resposta = await exibir.json();
+        console.log(resposta); 
+        const tabela = document.getElementById("usuarios"); 
+        tabela.innerHTML = ""; resposta.forEach(usuarios => { const novaLinha = tabela.insertRow(); 
+            const nome = novaLinha.insertCell(); 
+            const numero = novaLinha.insertCell(); 
+            const ano = novaLinha.insertCell(); 
+            nome.textContent = usuarios.nome; 
+            numero.textContent = usuarios.telefone; 
+            ano.textContent = usuarios.ano_nasc; 
+            tabela.appendChild(novaLinha);
+        });
+    } exibirUsuarios();
