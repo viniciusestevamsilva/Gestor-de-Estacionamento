@@ -115,7 +115,7 @@ footer {
 }
 
 #tabelaTarefas {
-  width: 1000px;
+  /* width: 1000px; */
   margin: 30px auto;
   border-collapse: collapse;
   background-color: #333;

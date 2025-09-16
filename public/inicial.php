@@ -11,6 +11,7 @@
 <table  id='tabelaTarefas'>
     <thead>
         <tr>
+            <!-- <th>ID</th> -->
             <th>Situação</th>
             <th>Setor</th>
             <th>Número</th>
