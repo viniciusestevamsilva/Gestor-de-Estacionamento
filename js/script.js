@@ -42,39 +42,26 @@ async function executarTarefas() {
             novaCelulaVaga.style.backgroundColor = "#272b10";
             situacao.textContent = "Livre";
         }
-        
-        button.onclick = async () => {
-            await fetch("../api/vagas/atualizar_vagas.php", {
-                method: "POST",
-                body: JSON.stringify({
-                    id:vagas.id,
-                    id_vaga:vagas.vaga,
-                    situacao:vagas.situacao == 1 ? 0 : 1
-                })
-            });
-            executarTarefas();
-        };
 
-        tabelaVagas.appendChild(novaCelulaVaga);
+        tabela.appendChild(novaLinha);
     });
 
-    // const tabelaUsuarios = document.getElementById("usuarios");
-    // tabelaUsuarios.innerHTML = "";
-
-    // usuarios.forEach(usuario => {
-    //     const novaCelulaUsuario = tabelaUsuarios.insertRow();
-
-    //     const nome = novaCelulaUsuario.insertCell();
-    //     const telefone = novaCelulaUsuario.insertCell();
-    //     const nascimento = novaCelulaUsuario.insertCell();
-
-    //     nome.textContent = usuario.nome;
-    //     telefone.textContent = usuario.telefone;
-    //     nascimento.textContent = usuario.ano_nascimento;
-
-    //     tabelaUsuarios.appendChild(novaCelulaUsuario);
-    // });
 }
 
+exibirVagas();
 
-executarTarefas();
+async function exibirUsuarios() {
+    const exibir = await fetch("../api/usuario/exibir.php"); 
+        const resposta = await exibir.json();
+        console.log(resposta); 
+        const tabela = document.getElementById("usuarios"); 
+        tabela.innerHTML = ""; resposta.forEach(usuarios => { const novaLinha = tabela.insertRow(); 
+            const nome = novaLinha.insertCell(); 
+            const numero = novaLinha.insertCell(); 
+            const ano = novaLinha.insertCell(); 
+            nome.textContent = usuarios.nome; 
+            numero.textContent = usuarios.telefone; 
+            ano.textContent = usuarios.ano_nasc; 
+            tabela.appendChild(novaLinha);
+        });
+    } exibirUsuarios();
