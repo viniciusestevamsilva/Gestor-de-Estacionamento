@@ -4,10 +4,9 @@
     <h1>DILEVI Parking</h1>
 </header>
 
-<button>cadastro_usuario</button>
-<button>cadastro_veiculo</button>
+<a href="cadastro_usuario.php"><strong> CADASTRO USUARIO </strong></a>
+<a href="cadastro_veiculo.php"><strong> CADASTRO VEICULO </strong></a>
 <a href="../index.php" id='btn-saida'>SAIR</a>
-<?php include "./cadastro_usuario.php"?>
 
 <table  id='tabelaTarefas'>
     <thead>

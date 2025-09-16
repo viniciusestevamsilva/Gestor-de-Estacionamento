@@ -2,18 +2,14 @@
 header("Content-Type: application/json");
 
 include("../../conexao/conexao.php");
-// include $_SERVER['DOCUMENT_ROOT'] . '/conexao/conexao.php';
 
-$sql = "SELECT * FROM tb_usuario;";
 
+$sql = "SELECT nome, telefone, ano_nasc FROM tb_cliente";
 $result = $conn->query($sql);
 
-$usuarios = [];
+$dados = [];
 
 while($row = $result->fetch_assoc()) {
-    $usuarios[] = $row;
-    // echo $usuarios;
-}
+    $dados[] = $row;}
 
-echo json_encode($usuarios);
-?>
+echo json_encode($dados);

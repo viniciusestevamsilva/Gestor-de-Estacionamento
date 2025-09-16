@@ -75,4 +75,5 @@ async function executarTarefas() {
     // });
 }
 
+
 executarTarefas();
