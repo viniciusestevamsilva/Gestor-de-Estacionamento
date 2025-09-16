@@ -1,6 +1,6 @@
 async function executarTarefas() {
     // Chamado todos os caminhos para a exibição
-    const exibirVagas = await fetch("../api/exibir_vagas.php");
+    const exibirVagas = await fetch("../api/vagas/exibir_vagas.php");
     const exibirUsuarios = await fetch("../api/usuario/exibir.php");
     const situacaoVagas = await exibirVagas.json();
     const usuarios = await exibirUsuarios.json();
@@ -14,6 +14,7 @@ async function executarTarefas() {
     situacaoVagas.forEach(vagas => {
         const novaCelulaVaga = tabelaVagas.insertRow();
 
+        // const id = novaCelulaVaga.insertCell();
         const situacao = novaCelulaVaga.insertCell();
         const setor = novaCelulaVaga.insertCell();
         const numero = novaCelulaVaga.insertCell();
@@ -24,36 +25,36 @@ async function executarTarefas() {
         const valor1 = novaCelulaVaga.insertCell();
         const button = novaCelulaVaga.insertCell();
 
+        // id.textContent = vagas.id;
         setor.textContent = vagas.setor;
         numero.textContent = vagas.numero;
         nome.textContent = vagas.nome;
         placa.textContent = vagas.placa;
         horaEntrada.textContent = vagas.hora_entrada;
+        horaSaida.textContent = vagas.hora_saida;
         valor1.textContent = vagas.valor;
         button.innerHTML = "<button>Atualizar</button>";
         
         if (vagas.situacao == 0) {
-            novaCelulaVaga.style.backgroundColor = "#FF0000";
+            novaCelulaVaga.style.backgroundColor = "#9c0219ff";
             situacao.textContent = "Ocupado";
         } else {
-            novaCelulaVaga.style.backgroundColor = "#00FF00";
+            novaCelulaVaga.style.backgroundColor = "#272b10";
             situacao.textContent = "Livre";
         }
         
         button.onclick = async () => {
-            console.log("Chegou aqui!")
-            await fetch("../api/atualizar_vagas.php", {
+            await fetch("../api/vagas/atualizar_vagas.php", {
                 method: "POST",
                 body: JSON.stringify({
-                    id:vagas.id
-                    // hora_saida: vagas.hora_saida = new Date().getTime()
-                    // // hora_saida: vagas.hora_saida = Date.now()
+                    id:vagas.id,
+                    id_vaga:vagas.vaga,
+                    situacao:vagas.situacao == 1 ? 0 : 1
                 })
             });
-            horaSaida.textContent = vagas.hora_saida;
-            console.log(Date.now());
             executarTarefas();
         };
+
         tabelaVagas.appendChild(novaCelulaVaga);
     });
 
