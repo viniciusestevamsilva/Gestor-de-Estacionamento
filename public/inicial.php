@@ -11,22 +11,24 @@
             <a href="../index.php" id="btn-saida"><strong>SAIR</strong></a>
         </div>
 
-        <table id="tabelaTarefas">
-            <thead>
-                <tr>
-                    <th>Situação</th>
-                    <th>Setor</th>
-                    <th>Número</th>
-                    <th>Nome</th>
-                    <th>Placa</th>
-                    <th>Hora de Entrada</th>
-                    <th>Hora de Saída</th>
-                    <th>Valor(R$)</th>
-                    <th>Adicionar Saída</th>
-                </tr>
-            </thead>
-            <tbody id="vagas"></tbody>
-        </table>
+<table  id='tabelaTarefas'>
+    <thead>
+        <tr>
+            <!-- <th>ID</th> -->
+            <th>Situação</th>
+            <th>Setor</th>
+            <th>Número</th>
+            <th>Nome</th>
+            <th>Placa</th>
+            <th>Hora de Entrada</th>
+            <th>Hora de Saída</th>
+            <th>Valor(R$)</th>
+            <th>Adicionar Saída</th>
+        </tr>
+    </thead>
+    <tbody id="ocupacao"></tbody>
+</table>
+
     </main>
 
     <?php include "./footer.php" ?>
