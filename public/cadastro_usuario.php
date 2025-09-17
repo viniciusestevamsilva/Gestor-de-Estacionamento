@@ -1,7 +1,8 @@
-<?php include "./header.php"; ?>
+<?php include "header.php"; ?>
 
 <main class="container-form">
     <img src="../img/parede-de-concreto.jpg" class="fundo-bk">
+    
 
     <form id="formCadastro" class="formulario">
         <label for="user">NOME DO CLIENTE:</label>
@@ -14,18 +15,22 @@
         <input type="number" id="nascimento" min="1900" required>
 
         <button type="submit" id="cadastrar">CADASTRAR</button>
+        <a href="inicial.php" id='btn-saida'>SAIR</a>
     </form>
+
 </main>
-<a href="inicial.php" id='btn-saida'>SAIR</a>
-<table id="tabelaTarefas">
-    <thead>
-        <tr>
-            <th>Nome</th>
-            <th>Número Contato</th>
-            <th>Ano de Nascimento</th>
-        </tr>
-    </thead>
-    <tbody id="usuarios"></tbody>
-</table>
+
+     <table id="tabelaTarefas">
+        <thead>
+            <tr>
+                <th>Nome</th>
+                <th>Número Contato</th>
+                <th>Ano de Nascimento</th>
+            </tr>
+        </thead>
+        <tbody id="usuarios"></tbody>
+    </table>
+
 
 <script src="../js/script.js"></script>
+<?php include "footer.php"; ?>

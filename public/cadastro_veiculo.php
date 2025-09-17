@@ -10,9 +10,9 @@
         <input type="text" name="cor" id="nome_cor">
         <label for="vagas">SELECIONE UMA VAGA</label>
         <select id="vagas" name="vagas_livres">
-            <option value="a1">A1</option>
+            <!-- <option value="a1">A1</option>
             <option value="a2">A2</option>
-            <option value="a3">A3</option>
+            <option value="a3">A3</option> -->
         </select>
         <button type="submit" id="cadastrar">CADASTRAR</button>
     </form> ''

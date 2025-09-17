@@ -5,16 +5,29 @@
   text-decoration: none;
 }
 
+html, body {
+  height: 100%;
+}
+
 body {
   text-align: center;
   background-color: #e7e7e7;
 }
 
+main {
+  flex-grow: 1; /* apenas main cresce pra ocupar o espaço */
+  padding: 30px 0;
+}
+
 header {
-  background-color: #636b2f;
-  color: #e7e7e7;
   padding: 30px;
   margin-bottom: 30px;
+  background-color: #636b2f;
+  color: #e7e7e7;
+  display: flex;
+  align-items: center; 
+  justify-content: center; 
+  gap: 20px;  
 }
 
 h2 {
@@ -62,10 +75,22 @@ button:hover {
 
 footer {
   text-align: center;
-  color: #333;
+  color: #e7e7e7;
+  background-color: #636b2f;
   padding: 30px;
-  margin-top: 30px;
+  margin-top: auto;
   font-weight: bold;
+}
+
+.icone {
+  width: 60px;
+  height: auto;
+}
+
+.ajustes-header-footer {
+  display: flex; 
+  flex-direction: column; 
+  min-height: 100vh;
 }
 
 .fundo-bk{
@@ -115,16 +140,25 @@ footer {
 }
 
 #tabelaTarefas {
-  /* width: 1000px; */
+  width: 1000px;
   margin: 30px auto;
   border-collapse: collapse;
   background-color: #333;
   color: #e7e7e7;
   box-shadow: 0 0 10px #000000;
   border-radius: 5px;
+  overflow: hidden;
+  
 }
 
-#tabelaTarefas th,
+#tabelaTarefas thead th,
+#tabelaTarefas td {
+  padding: 12px 15px;
+  border: 1px solid #333;
+  text-align: center;
+}
+
+#tabelaTarefas tbody th,
 #tabelaTarefas td {
   padding: 12px 15px;
   border: 1px solid #636b2f;
@@ -133,10 +167,24 @@ footer {
 
 #tabelaTarefas thead {
   background-color: #636b2f;
+
+}
+
+#tabelaTarefas thead td{
+  background-color: #636b2f;
+  border: 1px solid #333;
 }
 
 #tabelaTarefas tbody tr:nth-child(even) {
   background-color: #444;
+}
+
+.botoes-container {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+ 
 }
 
 .btn-excluir {
@@ -155,9 +203,17 @@ footer {
 }
 
 #btn-saida{
-  margin: 0 20px;
+   display: inline-block;
   background-color: #333;
   color: #e7e7e7;
+  font-weight: bold;
+  border: 1px solid #333;
+  box-shadow: 0 0 10px #000000;
+  border-radius: 5px;
+  margin: 10px;
+  line-height: 1.4;
+  vertical-align: middle;
+  text-align: center;
 }
 
 #btn-saida:hover {
