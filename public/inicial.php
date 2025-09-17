@@ -20,6 +20,7 @@
             <th>Número</th>
             <th>Nome</th>
             <th>Placa</th>
+            <th>Cor</th>
             <th>Hora de Entrada</th>
             <th>Hora de Saída</th>
             <th>Valor(R$)</th>

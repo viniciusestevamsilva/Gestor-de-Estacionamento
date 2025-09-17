@@ -23,6 +23,7 @@ async function executarTarefas() {
             const numero = novaCelulaVaga.insertCell();
             const nome  = novaCelulaVaga.insertCell();
             const placa = novaCelulaVaga.insertCell();
+            const cor = novaCelulaVaga.insertCell();
             const horaEntrada = novaCelulaVaga.insertCell();
             const horaSaida = novaCelulaVaga.insertCell();
             const valor1 = novaCelulaVaga.insertCell();
@@ -33,6 +34,7 @@ async function executarTarefas() {
             numero.textContent = vagas.numero;
             nome.textContent = vagas.nome;
             placa.textContent = vagas.placa;
+            cor.textContent = vagas.cor;
             horaEntrada.textContent = vagas.hora_entrada;
             horaSaida.textContent = vagas.hora_saida;
             valor1.textContent = vagas.valor;
