@@ -3,7 +3,7 @@ header("Content-Type: application/json");
 
 include("../../conexao/conexao.php");
 
-$sql = "SELECT * FROM tb_ocupacao ORDER BY id DESC";
+$sql = "SELECT * FROM tb_veiculo";
 
 $resultado = $conn->query($sql);
 

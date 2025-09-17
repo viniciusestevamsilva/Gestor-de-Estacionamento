@@ -23,7 +23,7 @@
             <th>Adicionar Saída</th>
         </tr>
     </thead>
-    <tbody id="vagas"></tbody>
+    <tbody id="ocupacao"></tbody>
 </table>
 
 
