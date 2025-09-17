@@ -1,11 +1,11 @@
 <?php include "./header.php" ?>
 
 <main class="container-form">
-    <form action="../index.php" method="POST" class='formulario'>
+    <form id="formCadastro" class='formulario'>
         <label for="number">ID DO CLIENTE:</label>
-        <input type="number" name="cliente" id="id_cliente" required>
+        <input type="number" name="id_cliente" id="cliente" required>
         <label for="number">PLACA DO VEÍCULO:</label>
-        <input type="text" name="placa" id="num_placa" required>
+        <input type="text" name="num_placa" id="placa" required>
         <label for="nascimento">COR DO VEÍCULO:</label>
         <input type="text" name="cor" id="nome_cor">
         <label for="vagas">SELECIONE UMA VAGA</label>
@@ -17,20 +17,17 @@
         <button type="submit" id="cadastrar">CADASTRAR</button>
     </form> ''
 </main>
-
-<script>
-    document.getElementById("cadastrar").onclick = async () =>{
-        const nome = document.getElementById("user").value;
-        const numero = document.getElementById("number").value;
-        const ano = document.getElementById("nascimento").value;
-
-        await fetch("../api/veiculo/criar.php",{
-            method: "POST",
-            body: JSON.stringify({
-                nome, numero, ano
-            })
-        });
-    }
-</script>
+<a href="inicial.php" id='btn-saida'>SAIR</a>
+<table id="tabelaTarefas">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>ID CLIENTE</th>
+            <th>PLACA</th>
+            <th>COR</th>
+        </tr>
+    </thead>
+    <tbody id="usuarios"></tbody>
+</table>
 
 <script src="../js/script.js"></script>

@@ -104,7 +104,6 @@ async function executarTarefas() {
     if (selecaoVagas) {
         selecaoVagas.innerHTML = "";
 
-        console.log(vagas);
         vagas.forEach(vagas => {
             const novaOpcao = document.createElement("option");
             if (vagas.situacao == 1) {
@@ -123,23 +122,35 @@ async function executarTarefas() {
 
 executarTarefas();
 
-// async function exibirUsuarios() {
-//     const exibir = await fetch("../api/usuario/exibir.php"); 
-//         const resposta = await exibir.json();
-//         console.log(resposta); 
-//         const tabela = document.getElementById("usuarios"); 
-//         tabela.innerHTML = "";
-//             resposta.forEach(usuarios => { const novaLinha = tabela.insertRow(); 
-//             const nome = novaLinha.insertCell(); 
-//             const numero = novaLinha.insertCell(); 
-//             const ano = novaLinha.insertCell(); 
-//             nome.textContent = usuarios.nome; 
-//             numero.textContent = usuarios.telefone; 
-//             ano.textContent = usuarios.ano_nasc; 
-//             tabela.appendChild(novaLinha);
-//         });
-// }
+function criarUsuario(){
+    document.getElementById("cadastrar").onclick = async () =>{
+        const nome = document.getElementById("user").value;
+        const numero = document.getElementById("number").value;
+        const ano = document.getElementById("nascimento").value;
 
-// exibirUsuarios();
+        await fetch("../api/usuario/criar.php",{
+            method: "POST",
+            body: JSON.stringify({
+                nome, numero, ano
+            })
+        });
+    }
+}
 
+function criarVeiculo(){
+    document.getElementById("cadastrar").onclick = async () =>{
+        const id_usuario = document.getElementById("cliente").value;
+        const placa = document.getElementById("placa").value;
+        const cor = document.getElementById("cor").value;
+
+        await fetch("../api/usuario/criar.php",{
+            method: "POST",
+            body: JSON.stringify({
+                id_usuario, placa, cor
+            })
+        })
+
+    }
+}
+criarUsuario();
 
