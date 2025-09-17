@@ -74,7 +74,7 @@ async function executarTarefas() {
             const nascimento = novaCelulaUsuario.insertCell();
     
             nome.textContent = usuario.nome;
-            telefone.textContent = usuario.telefone;
+            telefone.textContent = `(0${usuario.telefone.slice(0,2)}) ${usuario.telefone.slice(2,7)} - ${usuario.telefone.slice(7, 11)}`;
             nascimento.textContent = usuario.ano_nasc;
     
             tabelaUsuarios.appendChild(novaCelulaUsuario);
