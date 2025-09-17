@@ -58,23 +58,54 @@ async function executarTarefas() {
         tabelaVagas.appendChild(novaCelulaVaga);
     });
 
-    // const tabelaUsuarios = document.getElementById("usuarios");
-    // tabelaUsuarios.innerHTML = "";
+    const tabelaUsuarios = document.getElementById("usuarios");
+    tabelaUsuarios.innerHTML = "";
 
-    // usuarios.forEach(usuario => {
-    //     const novaCelulaUsuario = tabelaUsuarios.insertRow();
+    usuarios.forEach(usuario => {
+        const novaCelulaUsuario = tabelaUsuarios.insertRow();
 
-    //     const nome = novaCelulaUsuario.insertCell();
-    //     const telefone = novaCelulaUsuario.insertCell();
-    //     const nascimento = novaCelulaUsuario.insertCell();
+        const nome = novaCelulaUsuario.insertCell();
+        const telefone = novaCelulaUsuario.insertCell();
+        const nascimento = novaCelulaUsuario.insertCell();
 
-    //     nome.textContent = usuario.nome;
-    //     telefone.textContent = usuario.telefone;
-    //     nascimento.textContent = usuario.ano_nascimento;
+        nome.textContent = usuario.nome;
+        telefone.textContent = usuario.telefone;
+        nascimento.textContent = usuario.ano_nasc;
 
-    //     tabelaUsuarios.appendChild(novaCelulaUsuario);
-    // });
+        tabelaUsuarios.appendChild(novaCelulaUsuario);
+    });
 }
 
+function criarUsuario(){
+    document.getElementById("cadastrar").onclick = async () =>{
+        const nome = document.getElementById("user").value;
+        const numero = document.getElementById("number").value;
+        const ano = document.getElementById("nascimento").value;
+
+        await fetch("../api/usuario/criar.php",{
+            method: "POST",
+            body: JSON.stringify({
+                nome, numero, ano
+            })
+        });
+    }
+}
+
+function criarVeiculo(){
+    document.getElementById("cadastrar").onclick = async () =>{
+        const id_usuario = document.getElementById("cliente").value;
+        const placa = document.getElementById("placa").value;
+        const cor = document.getElementById("cor").value;
+
+        await fetch("../api/usuario/criar.php",{
+            method: "POST",
+            body: JSON.stringify({
+                id_usuario, placa, cor
+            })
+        })
+
+    }
+}
+criarUsuario();
 
 executarTarefas();

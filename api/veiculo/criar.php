@@ -7,14 +7,14 @@ include("../../conexao/conexao.php");
 
 $dados = json_decode(file_get_contents("php://input"), true);
 
-$nome = $conn->real_escape_string($dados["nome"]);
-$telefone = $conn->real_escape_string($dados["telefone"]);
-$ano = $conn->real_escape_string($dados["ano"]);
+$id_usuario = $conn->real_escape_string($dados["id_cliente"]);
+$placa = $conn->real_escape_string($dados["num_placa"]);
+$cor = $conn->real_escape_string($dados["cor"]);
 
-$sql = "INSERT INTO tb_cliente (nome, telefone, ano_nasc) VALUES ('$nome', '$telefone', '$ano')";
+$sql = "INSERT INTO tb_veiculo (id_usuario, placa, cor) VALUES ('$id_usuario', '$placa', '$cor')";
 
 $conn->query($sql);
 
 
-echo json_encode(["id" => $conn->insert_id, "nome" => $nome, "telefone" => $telefone, "ano_nasc" => $ano]);
+echo json_encode(["id" => $conn->insert_id, "id_usuario" => $id_usuario, "placa" => $placa, "cor" => $cor,]);
 ?>
