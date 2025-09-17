@@ -22,9 +22,9 @@
     <thead>
         <tr>
             <th>ID</th>
-            <th>ID CLIENTE</th>
-            <th>PLACA</th>
-            <th>COR</th>
+            <th>NOME</th>
+            <th>TELEFONE</th>
+            <th>ANO</th>
         </tr>
     </thead>
     <tbody id="usuarios"></tbody>

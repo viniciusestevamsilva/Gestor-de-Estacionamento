@@ -71,10 +71,12 @@ async function executarTarefas() {
         usuarios.forEach(usuario => {
             const novaCelulaUsuario = tabelaUsuarios.insertRow();
     
+            const id = novaCelulaUsuario.insertCell();
             const nome = novaCelulaUsuario.insertCell();
             const telefone = novaCelulaUsuario.insertCell();
             const nascimento = novaCelulaUsuario.insertCell();
     
+            id.textContent = usuario.id;
             nome.textContent = usuario.nome;
             telefone.textContent = `(0${usuario.telefone.slice(0,2)}) ${usuario.telefone.slice(2,7)} - ${usuario.telefone.slice(7, 11)}`;
             nascimento.textContent = usuario.ano_nasc;
@@ -122,37 +124,43 @@ async function executarTarefas() {
 }
 
 
-executarTarefas();
+
 
 function criarUsuario(){
-    document.getElementById("cadastrar").onclick = async () =>{
-        const nome = document.getElementById("user").value;
-        const numero = document.getElementById("number").value;
-        const ano = document.getElementById("nascimento").value;
-
-        await fetch("../api/usuario/criar.php",{
-            method: "POST",
-            body: JSON.stringify({
-                nome, numero, ano
-            })
-        });
+    const cadastrarUsuario = document.getElementById("cadastrar");
+    if (cadastrarUsuario){
+        cadastrarUsuario.onclick = async () =>{
+            const nome = document.getElementById("user").value;
+            const numero = document.getElementById("number").value;
+            const ano = document.getElementById("nascimento").value;
+    
+            await fetch("../api/usuario/criar.php",{
+                method: "POST",
+                body: JSON.stringify({
+                    nome, numero, ano
+                })
+            });
+        }
+        criarUsuario();
     }
 }
 
-function criarVeiculo(){
-    document.getElementById("cadastrar").onclick = async () =>{
-        const id_usuario = document.getElementById("cliente").value;
-        const placa = document.getElementById("placa").value;
-        const cor = document.getElementById("cor").value;
+// function criarVeiculo(){
+//     document.getElementById("cadastrar").onclick = async () =>{
+//         const id_usuario = document.getElementById("cliente").value;
+//         const placa = document.getElementById("placa").value;
+//         const cor = document.getElementById("cor").value;
 
-        await fetch("../api/usuario/criar.php",{
-            method: "POST",
-            body: JSON.stringify({
-                id_usuario, placa, cor
-            })
-        })
+//         await fetch("../api/usuario/criar.php",{
+//             method: "POST",
+//             body: JSON.stringify({
+//                 id_usuario, placa, cor
+//             })
+//         })
 
-    }
-}
-criarUsuario();
+//     }
+// }
 
+// criarVeiculo();
+
+executarTarefas();
