@@ -9,7 +9,7 @@
 </head>
 <body>
     <header>
-        <img src="/Gestor-de-Estacionamento/img/pngtree-no-parking-icon-in-spanish-png-image_6568113.png" class="icone">
+        <img src="/Gestor-de-Estacionamento/img/placa-estacionamento-estacionar.png" class="icone">
         <h1>DILEVI Parking</h1>
         
     </header>

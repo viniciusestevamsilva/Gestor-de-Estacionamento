@@ -5,9 +5,18 @@
   text-decoration: none;
 }
 
+html, body {
+  height: 100%;
+}
+
 body {
   text-align: center;
   background-color: #e7e7e7;
+}
+
+main {
+  flex-grow: 1; /* apenas main cresce pra ocupar o espaço */
+  padding: 30px 0;
 }
 
 header {
@@ -69,7 +78,7 @@ footer {
   color: #e7e7e7;
   background-color: #636b2f;
   padding: 30px;
-  margin-top: 30px;
+  margin-top: auto;
   font-weight: bold;
 }
 
@@ -79,18 +88,9 @@ footer {
 }
 
 .ajustes-header-footer {
-  min-height: 100vh;
   display: flex; 
-  flex-direction: column;        
-}
-
-.ajustes-header-footer main {
-  flex: 1;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 30px 0;
-  overflow: hidden;
+  flex-direction: column; 
+  min-height: 100vh;
 }
 
 .fundo-bk{
@@ -179,6 +179,14 @@ footer {
   background-color: #444;
 }
 
+.botoes-container {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+ 
+}
+
 .btn-excluir {
   background-color: #b91c1c;
   color: white;
@@ -195,9 +203,17 @@ footer {
 }
 
 #btn-saida{
-  margin: 0 20px;
+   display: inline-block;
   background-color: #333;
   color: #e7e7e7;
+  font-weight: bold;
+  border: 1px solid #333;
+  box-shadow: 0 0 10px #000000;
+  border-radius: 5px;
+  margin: 10px;
+  line-height: 1.4;
+  vertical-align: middle;
+  text-align: center;
 }
 
 #btn-saida:hover {
