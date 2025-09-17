@@ -9,7 +9,7 @@ include("../../conexao/conexao.php");
 // JOIN tb_veiculo ON tb_ocupacao.id_veiculo = tb_veiculo.id
 // JOIN tb_vaga ON tb_ocupacao.id_vaga = tb_vaga.id
 // JOIN tb_usuario ON tb_veiculo.id_usuario = tb_usuario.id;";
-$sql = "SELECT tb_ocupacao.id, tb_vaga.id as vaga, situacao, setor, numero, nome, placa, hora_entrada, hora_saida, valor FROM tb_ocupacao JOIN tb_veiculo ON tb_ocupacao.id_veiculo = tb_veiculo.id JOIN tb_vaga ON tb_ocupacao.id_vaga = tb_vaga.id JOIN tb_usuario ON tb_veiculo.id_usuario = tb_usuario.id;";
+$sql = "SELECT tb_ocupacao.id, tb_vaga.id as vaga, situacao, setor, numero, nome, placa, hora_entrada, hora_saida, valor FROM tb_ocupacao JOIN tb_veiculo ON tb_ocupacao.id_veiculo = tb_veiculo.id JOIN tb_vaga ON tb_ocupacao.id_vaga = tb_vaga.id JOIN tb_cliente ON tb_veiculo.id_usuario = tb_cliente.id;";
 
 $result = $conn->query($sql);
 
