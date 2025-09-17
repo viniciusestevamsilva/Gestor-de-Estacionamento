@@ -1,12 +1,15 @@
+<!-- Exemplo de estrutura em inicial.php -->
 <?php include "./header.php" ?>
-<img src="../img/parede-de-concreto.jpg" class='fundo-bk'>
-<header>
-    <h1>DILEVI Parking</h1>
-</header>
 
-<a href="cadastro_usuario.php"><strong> CADASTRO USUARIO </strong></a>
-<a href="cadastro_veiculo.php"><strong> CADASTRO VEICULO </strong></a>
-<a href="../index.php" id='btn-saida'>SAIR</a>
+<div class="ajustes-header-footer">
+    <main>
+        <img src="../img/parede-de-concreto.jpg" class='fundo-bk'>
+
+        <div class="botoes-container">
+            <a href="cadastro_usuario.php"><strong>CADASTRO USUÁRIO</strong></a>
+            <a href="cadastro_veiculo.php"><strong>CADASTRO VEÍCULO</strong></a>
+            <a href="../index.php" id="btn-saida"><strong>SAIR</strong></a>
+        </div>
 
 <table  id='tabelaTarefas'>
     <thead>
@@ -26,6 +29,9 @@
     <tbody id="ocupacao"></tbody>
 </table>
 
+    </main>
 
-<script src="../js/script.js" ></script>
-<?php include "./footer.php" ?>
+    <?php include "./footer.php" ?>
+</div>
+
+<script src="../js/script.js"></script>

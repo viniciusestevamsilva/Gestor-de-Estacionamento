@@ -142,38 +142,4 @@ executarTarefas();
 
 // exibirUsuarios();
 
-// document.getElementById("formCadastro").addEventListener("submit", async function (e) {
-//     e.preventDefault();
 
-//     const nome = document.getElementById("user").value.trim();
-//     const numero = document.getElementById("number").value.trim();
-//     const ano = parseInt(document.getElementById("nascimento").value);
-
-//     if (!nome || !numero || isNaN(ano)) {
-//         alert("Preencha todos os campos corretamente.");
-//         return;
-//     }
-
-//     try {
-//         const resposta = await fetch("../api/usuario/criar.php", {
-//             method: "POST",
-//             headers: {
-//                 "Content-Type": "application/json"
-//             },
-//             body: JSON.stringify({ nome, numero, ano })
-//         });
-
-//         const resultado = await resposta.json();
-
-//         if (resultado.mensagem) {
-//             alert("Usuário cadastrado com sucesso!");
-//             exibirUsuarios();
-//             document.getElementById("formCadastro").reset();
-//         } else {
-//             alert("Erro: " + (resultado.erro || "Erro desconhecido"));
-//         }
-//     } catch (erro) {
-//         alert("Erro de conexão com o servidor.");
-//         console.error(erro);
-//     }
-// });
