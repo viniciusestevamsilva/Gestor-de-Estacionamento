@@ -134,33 +134,36 @@ function criarUsuario(){
             const numero = document.getElementById("number").value;
             const ano = document.getElementById("nascimento").value;
     
-            await fetch("../api/usuario/criar.php",{
+            await fetch("../api/usuario/criar_usuario.php",{
                 method: "POST",
                 body: JSON.stringify({
                     nome, numero, ano
                 })
             });
         }
-        criarUsuario();
     }
 }
+criarUsuario();
 
 // function criarVeiculo(){
-//     document.getElementById("cadastrar").onclick = async () =>{
-//         const id_usuario = document.getElementById("cliente").value;
-//         const placa = document.getElementById("placa").value;
-//         const cor = document.getElementById("cor").value;
-
-//         await fetch("../api/usuario/criar.php",{
-//             method: "POST",
-//             body: JSON.stringify({
-//                 id_usuario, placa, cor
-//             })
-//         })
-
+//     const cadastarVeiculo = document.getElementById("cadastrar");
+//     if(cadastarVeiculo){
+//         cadastarVeiculo.onclick = async () =>{
+//             const id_usuario = document.getElementById("cliente").value;
+//             const placa = document.getElementById("placa").value;
+//             const cor = document.getElementById("cor").value;
+//             alert(id_usuario, placa, cor);
+            
+//             await fetch("../api/veiculo/criar_veiculo.php",{
+//                 method: "POST",
+//                 body: JSON.stringify({
+//                     id_usuario, placa, cor
+//                 })
+//             });
+//         }
 //     }
 // }
-
 // criarVeiculo();
+
 
 executarTarefas();
