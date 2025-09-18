@@ -25,6 +25,7 @@
             <th>Hora de Saída</th>
             <th>Valor(R$)</th>
             <th>Adicionar Saída</th>
+            <th>&#9888;&#65039; Deletar vaga &#9888;&#65039;</th>
         </tr>
     </thead>
     <tbody id="ocupacao"></tbody>

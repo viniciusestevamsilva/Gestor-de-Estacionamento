@@ -23,6 +23,7 @@
      <table id="tabelaTarefas">
         <thead>
             <tr>
+                <th>ID</th>
                 <th>Nome</th>
                 <th>Número Contato</th>
                 <th>Telefone</th>

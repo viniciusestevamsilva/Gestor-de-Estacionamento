@@ -18,9 +18,10 @@
             <option value="a3">A3</option> -->
         </select>
         <button type="submit" id="cadastrar_veiculo">CADASTRAR</button>
+        <a href="inicial.php" id='btn-saida'>SAIR</a>
     </form> ''
 </main>
-<a href="inicial.php" id='btn-saida'>SAIR</a>
+
 <table id="tabelaTarefas">
     <thead>
         <tr>

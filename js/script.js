@@ -1,7 +1,7 @@
 async function executarTarefas() {
     // Chamado todos os caminhos para a exibição
     const exibirOcupacao = await fetch("../api/ocupacao/exibir_ocupacao.php");
-    const exibirUsuarios = await fetch("../api/usuario/exibir.php");
+    const exibirUsuarios = await fetch("../api/usuario/exibir_usuario.php");
     const exibirVagas = await fetch("../api/vagas/exibir_vagas.php");
     const situacaoVagas = await exibirOcupacao.json();
     const usuarios = await exibirUsuarios.json();
@@ -25,6 +25,8 @@ async function executarTarefas() {
             const horaSaida = novaCelulaVaga.insertCell();
             const valor1 = novaCelulaVaga.insertCell();
             const button = novaCelulaVaga.insertCell();
+            const btnExcluir = novaCelulaVaga.insertCell();
+        
     
             setor.textContent = vagas.setor;
             numero.textContent = vagas.numero;
@@ -35,6 +37,7 @@ async function executarTarefas() {
             horaSaida.textContent = vagas.hora_saida;
             valor1.textContent = vagas.valor;
             button.innerHTML = "<button>Atualizar</button>";
+            btnExcluir.innerHTML =  "<button>Excluir</button>";
             
             if (vagas.situacao == 0) {
                 novaCelulaVaga.style.backgroundColor = "#9c0219ff";
@@ -55,6 +58,26 @@ async function executarTarefas() {
                 });
                 executarTarefas();
             };
+
+            btnExcluir.onclick = async () => {
+
+            const response = await fetch("../api/ocupacao/excluir_ocupacao.php", {
+                method: "POST",
+                body: JSON.stringify({ id: vagas.id }),
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            });
+
+            if (response.ok) {
+                alert('Excluído com sucesso!');
+                executarTarefas();
+            } else {
+                alert('Erro ao excluir!');
+            }
+        };
+
+
     
             tabelaOcupacao.appendChild(novaCelulaVaga);
         });

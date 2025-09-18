@@ -1,3 +1,4 @@
+
 * {
   margin: 0;
   padding: 0;
@@ -7,11 +8,16 @@
 
 html, body {
   height: 100%;
+   margin: 0;
+  padding: 0;
 }
 
 body {
   text-align: center;
   background-color: #e7e7e7;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
 
 main {
@@ -40,7 +46,7 @@ a {
   text-align: center;
   background-color: #636b2f;
   color: #e7e7e7;
-  box-shadow: 0 0 10px #000000;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
   border: 1px solid #333;
   border-radius: 5px;
   padding: 10px;
@@ -56,12 +62,13 @@ a:hover {
 
 button {
   margin: 0 20px ;
+  margin-top: 15px;
   text-align: center;
   background-color: #636b2f;
   color: #e7e7e7;
   cursor: pointer;
   border: 1px solid #333;
-  box-shadow: 0 0 10px #000000;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
   border-radius: 5px;
   padding: 10px;
   padding-left: 75px; padding-right: 75px;
@@ -74,11 +81,11 @@ button:hover {
 }
 
 footer {
+  flex-shrink: 0;
   text-align: center;
   color: #e7e7e7;
   background-color: #636b2f;
   padding: 30px;
-  margin-top: auto;
   font-weight: bold;
 }
 
@@ -88,9 +95,9 @@ footer {
 }
 
 .ajustes-header-footer {
-  display: flex; 
-  flex-direction: column; 
-  min-height: 100vh;
+  flex: 1 0 auto;  /* Permite crescer para preencher o espaço */
+  display: flex;
+  flex-direction: column;
 }
 
 .fundo-bk{
@@ -115,11 +122,12 @@ footer {
   background-color: #cecdcd;
   padding: 30px;
   border-radius: 10px;
+  border: 1px solid #333;
   text-align: center;
   display: flex;
   flex-direction: column;
   gap: 20px;
-  box-shadow: 0 0 10px #000000;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
   width: 500px;
 }
 
@@ -132,7 +140,8 @@ footer {
   margin: auto;
   border: none;
   border-radius: 5px;
-  box-shadow: 0 0 10px #b6b5b5;
+  border: 1px solid #333;
+  box-shadow: 0 2 10px rgb(182, 180, 180);
 }
 
 .pagina {
@@ -140,12 +149,11 @@ footer {
 }
 
 #tabelaTarefas {
-  width: 1000px;
   margin: 30px auto;
   border-collapse: collapse;
   background-color: #333;
   color: #e7e7e7;
-  box-shadow: 0 0 10px #000000;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
   border-radius: 5px;
   overflow: hidden;
   
@@ -194,7 +202,7 @@ footer {
   padding: 6px 12px;
   border-radius: 5px;
   cursor: pointer;
-  box-shadow: 0 0 10px #000000;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
   transition: background-color 0.2s;
 }
 
@@ -203,17 +211,14 @@ footer {
 }
 
 #btn-saida{
-   display: inline-block;
+  display: inline-block;
   background-color: #333;
   color: #e7e7e7;
   font-weight: bold;
   border: 1px solid #333;
-  box-shadow: 0 0 10px #000000;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
   border-radius: 5px;
   margin: 10px;
-  line-height: 1.4;
-  vertical-align: middle;
-  text-align: center;
 }
 
 #btn-saida:hover {
