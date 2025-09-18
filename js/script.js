@@ -1,7 +1,7 @@
 async function executarTarefas() {
     // Chamado todos os caminhos para a exibição
     const exibirOcupacao = await fetch("../api/ocupacao/exibir_ocupacao.php");
-    const exibirUsuarios = await fetch("../api/usuario/exibir.php");
+    const exibirUsuarios = await fetch("../api/usuario/exibir_usuario.php");
     const exibirVagas = await fetch("../api/vagas/exibir_vagas.php");
     const situacaoVagas = await exibirOcupacao.json();
     const usuarios = await exibirUsuarios.json();
@@ -28,6 +28,8 @@ async function executarTarefas() {
             const horaSaida = novaCelulaVaga.insertCell();
             const valor1 = novaCelulaVaga.insertCell();
             const button = novaCelulaVaga.insertCell();
+            const btnExcluir = novaCelulaVaga.insertCell();
+        
     
             // id.textContent = vagas.id;
             setor.textContent = vagas.setor;
@@ -39,6 +41,7 @@ async function executarTarefas() {
             horaSaida.textContent = vagas.hora_saida;
             valor1.textContent = vagas.valor;
             button.innerHTML = "<button>Atualizar</button>";
+            btnExcluir.innerHTML =  "<button>Excluir</button>";
             
             if (vagas.situacao == 0) {
                 novaCelulaVaga.style.backgroundColor = "#9c0219ff";
@@ -59,6 +62,26 @@ async function executarTarefas() {
                 });
                 executarTarefas();
             };
+
+            btnExcluir.onclick = async () => {
+
+            const response = await fetch("../api/ocupacao/excluir_ocupacao.php", {
+                method: "POST",
+                body: JSON.stringify({ id: vagas.id }),
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            });
+
+            if (response.ok) {
+                alert('Excluído com sucesso!');
+                executarTarefas();
+            } else {
+                alert('Erro ao excluir!');
+            }
+        };
+
+
     
             tabelaOcupacao.appendChild(novaCelulaVaga);
         });
@@ -71,10 +94,12 @@ async function executarTarefas() {
         usuarios.forEach(usuario => {
             const novaCelulaUsuario = tabelaUsuarios.insertRow();
     
+            const id = novaCelulaUsuario.insertCell(); // <-- NOVO!
             const nome = novaCelulaUsuario.insertCell();
             const telefone = novaCelulaUsuario.insertCell();
             const nascimento = novaCelulaUsuario.insertCell();
-    
+        
+            id.textContent = usuario.id; // <-- EXIBINDO O ID
             nome.textContent = usuario.nome;
             telefone.textContent = `(0${usuario.telefone.slice(0,2)}) ${usuario.telefone.slice(2,7)} - ${usuario.telefone.slice(7, 11)}`;
             nascimento.textContent = usuario.ano_nasc;
@@ -155,4 +180,3 @@ function criarVeiculo(){
     }
 }
 criarUsuario();
-
