@@ -1,5 +1,10 @@
+
+/* =========================================== Funções Gerais ===========================================*/
+
 async function executarTarefas() {
-    // Chamado todos os caminhos para a exibição
+
+    /* =========================================== Chamado todos os caminhos para a exibição ===========================================*/
+
     const exibirOcupacao = await fetch("../api/ocupacao/exibir_ocupacao.php");
     const exibirUsuarios = await fetch("../api/usuario/exibir_usuario.php");
     const exibirVagas = await fetch("../api/vagas/exibir_vagas.php");
@@ -36,8 +41,8 @@ async function executarTarefas() {
             horaEntrada.textContent = vagas.hora_entrada;
             horaSaida.textContent = vagas.hora_saida;
             valor1.textContent = vagas.valor;
-            button.innerHTML = "<button>Atualizar</button>";
-            btnExcluir.innerHTML =  "<button>Excluir</button>";
+            button.innerHTML = "<button class='btn_atualizar'>Atualizar</button>";
+            btnExcluir.innerHTML =  "<button class='btn-excluir'>Excluir</button>";
             
             if (vagas.situacao == 0) {
                 novaCelulaVaga.style.backgroundColor = "#9c0219ff";
@@ -69,6 +74,8 @@ async function executarTarefas() {
                 }
             });
 
+        /* =========================================== Verifica se esta tudo dentro dos conformes ===========================================*/
+
             if (response.ok) {
                 alert('Excluído com sucesso!');
                 executarTarefas();
@@ -77,11 +84,11 @@ async function executarTarefas() {
             }
         };
 
-
-    
             tabelaOcupacao.appendChild(novaCelulaVaga);
         });
     }
+
+    /* =========================================== Exibi a tabela de usuarios ===========================================*/
 
     const tabelaUsuarios = document.getElementById("usuarios");
     if (tabelaUsuarios) {
@@ -94,15 +101,39 @@ async function executarTarefas() {
             const nome = novaCelulaUsuario.insertCell();
             const telefone = novaCelulaUsuario.insertCell();
             const nascimento = novaCelulaUsuario.insertCell();
-    
+        
             id.textContent = usuario.id;
             nome.textContent = usuario.nome;
+
+            /* =========================================== Filtro / Estilização ===========================================*/
             telefone.textContent = `(0${usuario.telefone.slice(0,2)}) ${usuario.telefone.slice(2,7)} - ${usuario.telefone.slice(7, 11)}`;
+
             nascimento.textContent = usuario.ano_nasc;
     
             tabelaUsuarios.appendChild(novaCelulaUsuario);
         });
     }
+
+    // const tabelaVeiculos = document.getElementById("veiculos");
+    // if (tabelaVeiculos) {
+    //     tabelaVeiculos.innerHTML = "";
+    
+    //     veiculos.forEach(veiculo => {
+    //         const novaCelulaUsuario = tabelaVeiculos.insertRow();
+    
+    //         const nome = novaCelulaUsuario.insertCell();
+    //         const telefone = novaCelulaUsuario.insertCell();
+    //         const nascimento = novaCelulaUsuario.insertCell();
+    
+    //         nome.textContent = veiculo.nome;
+    //         telefone.textContent = veiculo.telefone;
+    //         nascimento.textContent = veiculo.ano_nasc;
+    
+    //         tabelaVeiculos.appendChild(novaCelulaUsuario);
+    //     });
+    // }
+
+    /* =========================================== Altera as opções ===========================================*/
 
     const selecaoVagas = document.getElementById("vagas");
     if (selecaoVagas) {
@@ -122,8 +153,6 @@ async function executarTarefas() {
         });
     }
 }
-
-
 
 
 function criarUsuario(){

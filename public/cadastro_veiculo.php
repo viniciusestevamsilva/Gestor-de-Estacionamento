@@ -17,12 +17,20 @@
             <option value="a2">A2</option>
             <option value="a3">A3</option> -->
         </select>
-        <button type="submit" id="cadastrar_veiculo">CADASTRAR</button>
-        <a href="inicial.php" id='btn-saida'>SAIR</a>
-    </form> ''
+        
+        <div class="botoes-container">
+
+            <a href="inicial.php" id='btn-saida'>VOLTAR</a>
+            <button type="submit" id="cadastrar_veiculo">CADASTRAR VEICULO</button>
+
+        </div>
+        
+    </form>
+
 </main>
 
 <table id="tabelaTarefas">
+
     <thead>
         <tr>
             <th>ID</th>
@@ -32,6 +40,8 @@
         </tr>
     </thead>
     <tbody id="usuarios"></tbody>
+
 </table>
 
 <script src="../js/script.js"></script>
+<?php include "footer.php"; ?>

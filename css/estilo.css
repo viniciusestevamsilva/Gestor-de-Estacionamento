@@ -1,4 +1,6 @@
 
+/* =========================================== Area Principal ===========================================*/
+
 * {
   margin: 0;
   padding: 0;
@@ -21,7 +23,10 @@ body {
 }
 
 main {
-  flex-grow: 1; /* apenas main cresce pra ocupar o espaço */
+
+  /* =========================================== Com "flex-grown" apenas o main cresce ===========================================*/
+
+  flex-grow: 1;
   padding: 30px 0;
 }
 
@@ -51,7 +56,8 @@ a {
   border-radius: 5px;
   padding: 10px;
   margin: 10px;
-  padding-left: 75px; padding-right: 75px;
+  padding-left: 75px;
+  padding-right: 75px;
   font-weight: bold;
 }
 
@@ -71,13 +77,13 @@ button {
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
   border-radius: 5px;
   padding: 10px;
-  padding-left: 75px; padding-right: 75px;
+  padding-left: 75px;
+  padding-right: 75px;
   font-weight: bold;
 }
 
 button:hover {
   background-color: #e7e7e7;
-  color: #636b2f;
 }
 
 footer {
@@ -89,10 +95,14 @@ footer {
   font-weight: bold;
 }
 
+
+/* =========================================== Icone no Header ===========================================*/
 .icone {
   width: 60px;
   height: auto;
 }
+
+/* =========================================== Classes gerais ===========================================*/
 
 .ajustes-header-footer {
   flex: 1 0 auto;  /* Permite crescer para preencher o espaço */
@@ -110,6 +120,8 @@ footer {
   object-fit: cover;
   opacity: 30%;
 }
+
+/* =========================================== Formularios ===========================================*/
 
 .container-form {
   display: flex;
@@ -148,7 +160,10 @@ footer {
   height: 100vh;
 }
 
+/* =========================================== Tabelas de exibição ===========================================*/
+
 #tabelaTarefas {
+  width: auto;
   margin: 30px auto;
   border-collapse: collapse;
   background-color: #333;
@@ -156,7 +171,6 @@ footer {
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
   border-radius: 5px;
   overflow: hidden;
-  
 }
 
 #tabelaTarefas thead th,
@@ -187,38 +201,57 @@ footer {
   background-color: #444;
 }
 
-.botoes-container {
-  display: flex;
-  justify-content: center;
-  gap: 20px;
-  flex-wrap: wrap;
- 
-}
+/* =========================================== Botões ===========================================*/
 
-.btn-excluir {
-  background-color: #b91c1c;
-  color: white;
-  border: none;
-  padding: 6px 12px;
+.botoes-container a,
+.botoes-container button {
+  width: 200px; 
+  padding: 10px;
+  text-align: center;
+  border: 1px solid #333;
   border-radius: 5px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+}
+.btn-excluir {
+  background-color: #e7e7e7;
+  color: #ff0000e1;
+  border: 1px solid transparent;
   cursor: pointer;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
-  transition: background-color 0.2s;
+
 }
 
 .btn-excluir:hover {
-  background-color: #991b1b;
+  background-color: #ff0000e1;
+  color: #333;
+  border-color: #e7e7e7;
+}
+
+.btn_atualizar {
+  background-color: #e7e7e7;
+  color: #1c72b9;
+  border: 1px solid transparent;
+  cursor: pointer;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+.btn_atualizar:hover {
+  background-color: #1b4d99;
+  color: #e7e7e7;
+  border-color: #e7e7e7;
 }
 
 #btn-saida{
-  display: inline-block;
+ border: 1px solid #333;
   background-color: #333;
   color: #e7e7e7;
-  font-weight: bold;
-  border: 1px solid #333;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
-  border-radius: 5px;
-  margin: 10px;
+  padding: 10px;
+  padding-left: 30px;
+  padding-right: 30px;
+  font-weight: bold;
+  display: inline-block;
 }
 
 #btn-saida:hover {

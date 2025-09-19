@@ -14,6 +14,5 @@ $sql = "INSERT INTO tb_cliente (nome, telefone, ano_nasc) VALUES ('$nome', '$tel
 
 $conn->query($sql);
 
-
 echo json_encode(["id" => $conn->insert_id, "nome" => $nome, "telefone" => $telefone, "ano_nasc" => $ano]);
 ?>
