@@ -76,9 +76,9 @@ Um sistema de gerenciamento de vagas de estacionamento, que permite cadastrar us
 │
 │── 📁 conexao
 │       │
-│       └── 📁 conexao
-│                 │
-│                 └── 📄 conexao.php
+│       └── 📄 conexao.php
+│
+│
 │
 │── 📁 css
 │       │
@@ -142,8 +142,8 @@ http://localhost/pasta-de-sua-escolha/gestor-de-estacionamento/index.php
 
 <br>
 
-➖ **Dian**
+➖ **[Dian](https://github.com/DianLuca)**
 
-➖ **Leonardo**
+➖ **[Leonardo](https://github.com/leobarbosadev)**
 
-➖ **Vinícius**
+➖ **[Vinícius](https://github.com/viniciusestevamsilva)**
