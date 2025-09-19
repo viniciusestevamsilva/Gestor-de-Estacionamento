@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 13-Set-2025 às 01:34
+-- Tempo de geração: 20-Set-2025 às 00:20
 -- Versão do servidor: 10.4.24-MariaDB
 -- versão do PHP: 8.1.6
 
@@ -39,7 +39,26 @@ CREATE TABLE `tb_cliente` (
 --
 
 INSERT INTO `tb_cliente` (`id`, `nome`, `telefone`, `ano_nasc`) VALUES
-(25, 'Leonardo', '3299998888', 1995);
+(25, 'Leonardo', '32999988887', 1995),
+(31, 'Dian', '55955887744', 1999),
+(32, 'Lucas', '789445578', 1998),
+(33, 'Tereza', '78441025', 1948),
+(34, 'Gustavo', '32922558877', 2008),
+(35, 'Andre', '8555226677', 2018),
+(36, 'Teste', '558877', 1954),
+(37, 'Tião', '14785296', 1989),
+(38, 'Zé', '741258', 1956),
+(39, 'Vinicius', '78965412', 1920),
+(40, 'Tião', '32988887777', 1978),
+(41, 'Antonio', '22977772222', 1945),
+(42, 'Valmir', '35944553311', 1952),
+(43, 'Nadia', '25977884411', 1980),
+(44, 'Helena', '32911115555', 0000),
+(45, 'Renan', '25977774444', 2002),
+(46, 'Caio', '3255887744', 2004),
+(47, 'Aparecida', '778899445566', 1930),
+(48, 'Fabiana', '3588447711', 1989),
+(49, 'Bruno', '14978542110', 2005);
 
 -- --------------------------------------------------------
 
@@ -61,7 +80,12 @@ CREATE TABLE `tb_ocupacao` (
 --
 
 INSERT INTO `tb_ocupacao` (`id`, `id_vaga`, `id_veiculo`, `hora_entrada`, `hora_saida`, `valor`) VALUES
-(2, 1, 4, '2025-09-12 23:29:54', NULL, '0.00');
+(2, 1, 7, '2025-09-17 22:57:23', '2025-09-18 23:43:43', '27.00'),
+(3, 2, 8, '2025-09-17 22:57:23', '2025-09-18 23:43:44', '15.00'),
+(4, 5, 17, '2025-09-18 23:37:56', '2025-09-18 23:43:44', '0.00'),
+(5, 3, 17, '2025-09-18 23:41:20', NULL, '0.00'),
+(6, 3, 17, '2025-09-18 23:43:01', NULL, '0.00'),
+(7, 8, 17, '2025-09-18 23:45:31', '2025-09-18 23:47:12', '0.00');
 
 -- --------------------------------------------------------
 
@@ -81,7 +105,14 @@ CREATE TABLE `tb_vaga` (
 --
 
 INSERT INTO `tb_vaga` (`id`, `situacao`, `setor`, `numero`) VALUES
-(1, 1, 'A', 1);
+(1, 1, 'A', 1),
+(2, 1, 'A', 2),
+(3, 1, 'A', 3),
+(4, 1, 'A', 4),
+(5, 1, 'A', 5),
+(6, 1, 'A', 6),
+(7, 1, 'A', 7),
+(8, 1, 'A', 8);
 
 -- --------------------------------------------------------
 
@@ -101,7 +132,17 @@ CREATE TABLE `tb_veiculo` (
 --
 
 INSERT INTO `tb_veiculo` (`id`, `id_usuario`, `placa`, `cor`) VALUES
-(4, 25, 'PAP-UD4', '1');
+(7, 25, 'AAA-1111', 'Verde'),
+(8, 33, 'BBB-2222', 'Azul'),
+(17, 42, 'XYZ-2787', 'Amarelo'),
+(18, 43, 'CCC-3333', 'Roxo'),
+(19, 25, 'DDD-4444', 'Preto'),
+(20, 47, 'ABC-1234', 'Prata'),
+(21, 45, 'ZZZ-7894', 'Lilas'),
+(22, 48, 'TTT-4598', 'Rosa'),
+(23, 35, 'AGV-7845', 'Preto'),
+(24, 49, 'QQQ-1111', 'Preto'),
+(53, 42, 'EEE-5555', 'Amarelo');
 
 --
 -- Índices para tabelas despejadas
@@ -144,25 +185,25 @@ ALTER TABLE `tb_veiculo`
 -- AUTO_INCREMENT de tabela `tb_cliente`
 --
 ALTER TABLE `tb_cliente`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=50;
 
 --
 -- AUTO_INCREMENT de tabela `tb_ocupacao`
 --
 ALTER TABLE `tb_ocupacao`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT de tabela `tb_vaga`
 --
 ALTER TABLE `tb_vaga`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT de tabela `tb_veiculo`
 --
 ALTER TABLE `tb_veiculo`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=115;
 
 --
 -- Restrições para despejos de tabelas
