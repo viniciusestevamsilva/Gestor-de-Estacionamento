@@ -25,7 +25,7 @@
                     <th>Hora de Entrada</th>
                     <th>Hora de Saída</th>
                     <th>Valor(R$)</th>
-                    <th>Adicionar Saída</th>
+                    <th>Atualizar Saída</th>
                     <th>&#9888;&#65039; Deletar vaga &#9888;&#65039;</th>
                 </tr>
             </thead>
@@ -33,6 +33,7 @@
         </table>
 
     </main>
+    
 
     <?php include "./footer.php" ?>
 </div>
