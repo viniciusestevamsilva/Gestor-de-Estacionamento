@@ -145,25 +145,30 @@ function criarUsuario(){
 }
 criarUsuario();
 
-// function criarVeiculo(){
-//     const cadastarVeiculo = document.getElementById("cadastrar");
-//     if(cadastarVeiculo){
-//         cadastarVeiculo.onclick = async () =>{
-//             const id_usuario = document.getElementById("cliente").value;
-//             const placa = document.getElementById("placa").value;
-//             const cor = document.getElementById("cor").value;
-//             alert(id_usuario, placa, cor);
-            
-//             await fetch("../api/veiculo/criar_veiculo.php",{
-//                 method: "POST",
-//                 body: JSON.stringify({
-//                     id_usuario, placa, cor
-//                 })
-//             });
-//         }
-//     }
-// }
-// criarVeiculo();
+function criarVeiculo(){
+    // Pega o botão pelo ID correto (que está no HTML)
+    const cadastarVeiculo = document.getElementById("cadastrar_veiculo");
 
+    if(cadastarVeiculo){
+        cadastarVeiculo.onclick = async () =>{
+
+            // Pega os valores dos inputs
+            const id_usuario = document.getElementById("cliente").value;
+            const placa = document.getElementById("placa").value;
+            const cor = document.getElementById("cor").value;
+            const vaga = document.getElementById("vagas").value;
+
+            // Envia para o PHP
+            await fetch("../api/veiculo/criar_veiculo.php",{
+                method: "POST",
+                headers: {"Content-Type": "application/json"},
+                body: JSON.stringify({
+                    id_usuario, placa, cor, vaga
+                })
+            });
+        }
+    }
+}
+criarVeiculo();
 
 executarTarefas();

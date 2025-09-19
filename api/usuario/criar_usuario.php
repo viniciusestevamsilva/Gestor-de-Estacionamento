@@ -4,7 +4,6 @@ header("Content-Type: application/json");
 include("../../conexao/conexao.php");
 // include $_SERVER['DOCUMENT_ROOT'] . '/conexao/conexao.php';
 
-
 $dados = json_decode(file_get_contents("php://input"), true);
 
 $nome = $conn->real_escape_string($dados["nome"]);
