@@ -1,7 +1,12 @@
+
+/* =========================================== Funções Gerais ===========================================*/
+
 async function executarTarefas() {
-    // Chamado todos os caminhos para a exibição
+
+    /* =========================================== Chamado todos os caminhos para a exibição ===========================================*/
+
     const exibirOcupacao = await fetch("../api/ocupacao/exibir_ocupacao.php");
-    const exibirUsuarios = await fetch("../api/usuario/exibir.php");
+    const exibirUsuarios = await fetch("../api/usuario/exibir_usuario.php");
     const exibirVagas = await fetch("../api/vagas/exibir_vagas.php");
     const situacaoVagas = await exibirOcupacao.json();
     const usuarios = await exibirUsuarios.json();
@@ -10,6 +15,8 @@ async function executarTarefas() {
     // console.log(situacaoVagas);
     // console.log(usuarios);
 
+    /* =========================================== Exibi a tabela Inicial do sistema ===========================================*/
+
     const tabelaOcupacao = document.getElementById("ocupacao");
     if (tabelaOcupacao) {
         tabelaOcupacao.innerHTML = "";
@@ -17,6 +24,8 @@ async function executarTarefas() {
         situacaoVagas.forEach(vagas => {
             const novaCelulaVaga = tabelaOcupacao.insertRow();
     
+            /* =========================================== Declaração de Variaveis ===========================================*/
+
             // const id = novaCelulaVaga.insertCell();
             const situacao = novaCelulaVaga.insertCell();
             const setor = novaCelulaVaga.insertCell();
@@ -28,6 +37,8 @@ async function executarTarefas() {
             const horaSaida = novaCelulaVaga.insertCell();
             const valor1 = novaCelulaVaga.insertCell();
             const button = novaCelulaVaga.insertCell();
+            const btnExcluir = novaCelulaVaga.insertCell();
+        
     
             // id.textContent = vagas.id;
             setor.textContent = vagas.setor;
@@ -38,7 +49,8 @@ async function executarTarefas() {
             horaEntrada.textContent = vagas.hora_entrada;
             horaSaida.textContent = vagas.hora_saida;
             valor1.textContent = vagas.valor;
-            button.innerHTML = "<button>Atualizar</button>";
+            button.innerHTML = "<button class='btn_atualizar'>Atualizar</button>";
+            btnExcluir.innerHTML =  "<button class='btn-excluir'>Excluir</button>";
             
             if (vagas.situacao == 0) {
                 novaCelulaVaga.style.backgroundColor = "#9c0219ff";
@@ -59,10 +71,32 @@ async function executarTarefas() {
                 });
                 executarTarefas();
             };
-    
+
+            btnExcluir.onclick = async () => {
+
+            const response = await fetch("../api/ocupacao/excluir_ocupacao.php", {
+                method: "POST",
+                body: JSON.stringify({ id: vagas.id }),
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            });
+
+        /* =========================================== Verifica se esta tudo dentro dos conformes ===========================================*/
+
+            if (response.ok) {
+                alert('Excluído com sucesso!');
+                executarTarefas();
+            } else {
+                alert('Erro ao excluir!');
+            }
+        };
+
             tabelaOcupacao.appendChild(novaCelulaVaga);
         });
     }
+
+    /* =========================================== Exibi a tabela de usuarios ===========================================*/
 
     const tabelaUsuarios = document.getElementById("usuarios");
     if (tabelaUsuarios) {
@@ -71,12 +105,17 @@ async function executarTarefas() {
         usuarios.forEach(usuario => {
             const novaCelulaUsuario = tabelaUsuarios.insertRow();
     
+            const id = novaCelulaUsuario.insertCell();
             const nome = novaCelulaUsuario.insertCell();
             const telefone = novaCelulaUsuario.insertCell();
             const nascimento = novaCelulaUsuario.insertCell();
-    
+        
+            id.textContent = usuario.id;
             nome.textContent = usuario.nome;
+
+            /* =========================================== Filtro / Estilização ===========================================*/
             telefone.textContent = `(0${usuario.telefone.slice(0,2)}) ${usuario.telefone.slice(2,7)} - ${usuario.telefone.slice(7, 11)}`;
+
             nascimento.textContent = usuario.ano_nasc;
     
             tabelaUsuarios.appendChild(novaCelulaUsuario);
@@ -102,6 +141,8 @@ async function executarTarefas() {
     //     });
     // }
 
+    /* =========================================== Altera as opções ===========================================*/
+
     const selecaoVagas = document.getElementById("vagas");
     if (selecaoVagas) {
         selecaoVagas.innerHTML = "";
@@ -121,7 +162,6 @@ async function executarTarefas() {
     }
 }
 
-
 executarTarefas();
 
 function criarUsuario(){
@@ -130,7 +170,7 @@ function criarUsuario(){
         const numero = document.getElementById("number").value;
         const ano = document.getElementById("nascimento").value;
 
-        await fetch("../api/usuario/criar.php",{
+        await fetch("../api/usuario/criar_usuario.php",{
             method: "POST",
             body: JSON.stringify({
                 nome, numero, ano
@@ -145,7 +185,7 @@ function criarVeiculo(){
         const placa = document.getElementById("placa").value;
         const cor = document.getElementById("cor").value;
 
-        await fetch("../api/usuario/criar.php",{
+        await fetch("../api/usuario/criar_usuario.php",{
             method: "POST",
             body: JSON.stringify({
                 id_usuario, placa, cor
@@ -155,4 +195,5 @@ function criarVeiculo(){
     }
 }
 criarUsuario();
+
 

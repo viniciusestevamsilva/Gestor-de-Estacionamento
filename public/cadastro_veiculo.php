@@ -1,7 +1,8 @@
 <?php include "./header.php" ?>
 
 <main class="container-form">
-    <form id="formCadastro" class='formulario'>
+    
+    <form id="formCadastro" class="formulario">
         <label for="number">ID DO CLIENTE:</label>
         <input type="number" name="id_cliente" id="cliente" required>
         <label for="number">PLACA DO VEÍCULO:</label>
@@ -14,20 +15,32 @@
             <option value="a2">A2</option>
             <option value="a3">A3</option> -->
         </select>
-        <button type="submit" id="cadastrar">CADASTRAR</button>
-    </form> ''
+        
+        <div class="botoes-container">
+
+            <a href="inicial.php" id='btn-saida'>VOLTAR</a>
+            <button type="submit" id="cadastrar">CADASTRAR VEICULO</button>
+
+        </div>
+        
+    </form>
+
 </main>
-<a href="inicial.php" id='btn-saida'>SAIR</a>
+
+
 <table id="tabelaTarefas">
+
     <thead>
         <tr>
             <th>ID</th>
-            <th>ID CLIENTE</th>
-            <th>PLACA</th>
-            <th>COR</th>
+            <th>Nome</th>
+            <th>Número</th>
+            <th>Ano</th>
         </tr>
     </thead>
     <tbody id="usuarios"></tbody>
+
 </table>
 
 <script src="../js/script.js"></script>
+<?php include "footer.php"; ?>
