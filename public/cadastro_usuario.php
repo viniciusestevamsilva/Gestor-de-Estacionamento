@@ -30,7 +30,6 @@
                 <th>ID</th>
                 <th>Nome</th>
                 <th>Número Contato</th>
-                <th>Telefone</th>
                 <th>Ano de Nascimento</th>
             </tr>
         </thead>
