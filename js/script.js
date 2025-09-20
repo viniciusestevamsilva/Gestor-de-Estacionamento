@@ -6,7 +6,7 @@ async function executarTarefas() {
     /* =========================================== Chamado todos os caminhos para a exibição ===========================================*/
 
     const exibirOcupacao = await fetch("../api/ocupacao/exibir_ocupacao.php");
-    const exibirUsuarios = await fetch("../api/usuario/exibir_usuario.php");
+    const exibirUsuarios = await fetch("../api/usuario/exibir_usuario_usuario.php");
     const exibirVagas = await fetch("../api/vagas/exibir_vagas.php");
     const situacaoVagas = await exibirOcupacao.json();
     const usuarios = await exibirUsuarios.json();
@@ -20,6 +20,9 @@ async function executarTarefas() {
         situacaoVagas.forEach(vagas => {
             const novaCelulaVaga = tabelaOcupacao.insertRow();
     
+            /* =========================================== Declaração de Variaveis ===========================================*/
+
+            // const id = novaCelulaVaga.insertCell();
             const situacao = novaCelulaVaga.insertCell();
             const setor = novaCelulaVaga.insertCell();
             const numero = novaCelulaVaga.insertCell();
