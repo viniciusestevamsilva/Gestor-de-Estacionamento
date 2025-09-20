@@ -7,8 +7,6 @@ async function executarTarefas() {
     const usuarios = await exibirUsuarios.json();
     const vagas = await exibirVagas.json();
     
-    // console.log(situacaoVagas);
-    // console.log(usuarios);
 
     const tabelaOcupacao = document.getElementById("ocupacao");
     if (tabelaOcupacao) {
@@ -17,7 +15,6 @@ async function executarTarefas() {
         situacaoVagas.forEach(vagas => {
             const novaCelulaVaga = tabelaOcupacao.insertRow();
     
-            // const id = novaCelulaVaga.insertCell();
             const situacao = novaCelulaVaga.insertCell();
             const setor = novaCelulaVaga.insertCell();
             const numero = novaCelulaVaga.insertCell();
@@ -29,7 +26,6 @@ async function executarTarefas() {
             const valor1 = novaCelulaVaga.insertCell();
             const button = novaCelulaVaga.insertCell();
     
-            // id.textContent = vagas.id;
             setor.textContent = vagas.setor;
             numero.textContent = vagas.numero;
             nome.textContent = vagas.nome;
@@ -84,25 +80,6 @@ async function executarTarefas() {
             tabelaUsuarios.appendChild(novaCelulaUsuario);
         });
     }
-
-    // const tabelaVeiculos = document.getElementById("veiculos");
-    // if (tabelaVeiculos) {
-    //     tabelaVeiculos.innerHTML = "";
-    
-    //     veiculos.forEach(veiculo => {
-    //         const novaCelulaUsuario = tabelaVeiculos.insertRow();
-    
-    //         const nome = novaCelulaUsuario.insertCell();
-    //         const telefone = novaCelulaUsuario.insertCell();
-    //         const nascimento = novaCelulaUsuario.insertCell();
-    
-    //         nome.textContent = veiculo.nome;
-    //         telefone.textContent = veiculo.telefone;
-    //         nascimento.textContent = veiculo.ano_nasc;
-    
-    //         tabelaVeiculos.appendChild(novaCelulaUsuario);
-    //     });
-    // }
 
     const selecaoVagas = document.getElementById("vagas");
     if (selecaoVagas) {
