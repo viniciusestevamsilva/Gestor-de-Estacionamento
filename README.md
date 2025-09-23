@@ -116,7 +116,7 @@ Um sistema de gerenciamento de vagas de estacionamento, que permite cadastrar us
 ### 1. Clone o repositório:
 
 ```bash
-git clone https://github.com/seu-usuario/gestor-de-estacionamento.git
+git clone https://github.com/viniciusestevamsilva/gestor-de-estacionamento.git
 ```
 
 ### 2. Importe o arquivo no seu banco de dados MySQL:
