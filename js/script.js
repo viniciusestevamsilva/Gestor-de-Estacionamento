@@ -43,9 +43,17 @@ async function executarTarefas() {
             cor.textContent = vagas.cor;
             horaEntrada.textContent = vagas.hora_entrada;
             horaSaida.textContent = vagas.hora_saida;
-            valor1.textContent = vagas.valor;
-            button.innerHTML = "<button class='btn_atualizar'>Atualizar</button>";
-            btnExcluir.innerHTML =  "<button class='btn-excluir'>Excluir</button>";
+            if(vagas.valor == 0) {
+                valor1.textContent = "Gratuito";
+            }else {
+                valor1.textContent = vagas.valor;
+            }
+            if(horaSaida.textContent === ""){
+                button.innerHTML = "<button class='btn_atualizar'>Atualizar</button>";
+            } else {
+                button.innerHTML = "<button class='btn_atualizar' disabled>Atualizar</button>";
+            }
+            
             
             if (vagas.situacao == 0) {
                 novaCelulaVaga.style.backgroundColor = "#9c0219ff";
@@ -53,6 +61,12 @@ async function executarTarefas() {
             } else {
                 novaCelulaVaga.style.backgroundColor = "#272b10";
                 situacao.textContent = "Livre";
+            }
+
+            if(situacao.textContent == "Ocupado" && horaSaida.textContent == ""){
+                btnExcluir.innerHTML = "<button class='btn-excluir' disabled>Excluir</button>";
+            } else {
+                btnExcluir.innerHTML =  "<button class='btn-excluir'>Excluir</button>";
             }
             
             button.onclick = async () => {

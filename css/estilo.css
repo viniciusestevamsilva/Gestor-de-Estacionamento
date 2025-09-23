@@ -86,6 +86,11 @@ button:hover {
   color: #636b2f;
 }
 
+ button:disabled:hover{
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
 footer {
   flex-shrink: 0;
   text-align: center;
